@@ -1,56 +1,67 @@
-import axios from "axios";
-import * as actionTypes from "../action-types/product-types";
+import { ActionTypes } from "../action-types/product-types";
 
 const initialState = {
-    products: [],
-    cart: [],
-    currentProduct: null,
+  products: [],
+  cart: [],
+  categories: [],
 };
 
-const productReducer = (state = INITIAL_STATE, action) => {
-    switch (action.type) {
-      case actionTypes.ADD_TO_CART:
-        // Great Item data from products array
-        const item = state.products.find(
-          (product) => product.id === action.payload.id
-        );
-        // Check if Item is in cart already
-        const inCart = state.cart.find((item) =>
-          item.id === action.payload.id ? true : false
-        );
-  
-        return {
-          ...state,
-          cart: inCart
-            ? state.cart.map((item) =>
-                item.id === action.payload.id
-                  ? { ...item, qty: item.qty + 1 }
-                  : item
-              )
-            : [...state.cart, { ...item, qty: 1 }],
-        };
-      case actionTypes.REMOVE_FROM_CART:
-        return {
-          ...state,
-          cart: state.cart.filter((item) => item.id !== action.payload.id),
-        };
-      case actionTypes.ADJUST_ITEM_QTY:
-        return {
-          ...state,
-          cart: state.cart.map((item) =>
-            item.id === action.payload.id
-              ? { ...item, qty: +action.payload.qty }
-              : item
-          ),
-        };
-      case actionTypes.LOAD_CURRENT_ITEM:
-        return {
-          ...state,
-          currentItem: action.payload,
-        };
-      default:
-        return state;
-    }
-  };
-  
-export default productReducer ;
+export const productsReducer = (state = {}, { type, payload }) => {
+  switch (type) {
+    case ActionTypes.SET_PRODUCTS:
+      return { ...state, products: payload };
+    default:
+      return state;
+  }
+};
+
+export const addProductToCart = (state = initialState, { type, payload }) => {
+  switch (type) {
+    case ActionTypes.ADD_PRODUCT_TO_CART:
+      const item = payload.id
+      console.log(payload)
+      const inCart = state.cart.find((item) =>
+        item.id === payload.id.id ? true : false
+      );
+      return {
+        ...state,
+        cart: inCart
+          ? state.cart.map((item) =>
+              item.id === payload.id.id
+                ? { ...item, qty: item.qty + 1 }
+                : item
+            )
+          : [...state.cart, { ...item, qty: 1 }],
+      };
+    default:
+      return state;
+  }
+};
+
+export const setCart = (state = initialState , { type, payload }) => {
+  switch (type) {
+    case ActionTypes.SET_CART:
+      return { ...state, cart: payload }
+    default:
+      return state;
+  }
+}
+export const categoriesReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+    case ActionTypes.SET_CATEGORIES:
+      return { ...state, categories: payload };
+    default:
+      return state;
+  }
+};
+
+export const selectedProductsReducer = (state = {}, { type, payload }) => {
+  switch (type) {
+    case ActionTypes.SELECTED_PRODUCT:
+      return { ...state, ...payload };
+    case ActionTypes.REMOVE_SELECTED_PRODUCT:
+      return {};
+    default:
+      return state;
+  }
+};

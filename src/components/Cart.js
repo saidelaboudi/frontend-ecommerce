@@ -1,9 +1,58 @@
 import React from "react";
 import CartItem from "./CartItem";
-
-export var cart = [];
+import { useSelector } from "react-redux";
+import axios from "axios";
 
 const Cart = () => {
+
+    const cart = useSelector((state) => state.cart.cart);
+    var total = 0;
+    cart.forEach((element) => {
+        total += element.qty * element.price;
+    });
+
+    const checkout = () => {
+        var order = {
+            "amount": 1,
+            "id": 1,
+            "itemList": [
+                {
+                    "id": 1,
+                    "product": {
+                        "bestSelling": true,
+                        "category": {
+                            "description": "string",
+                            "id": 1,
+                            "name": "string"
+                        },
+                        "id": 1,
+                        "name": "string",
+                        "newArrival": true,
+                        "price": 1
+                    },
+                    "quantity": 1
+                }
+            ]
+        }
+        cart.map((item) => {
+            order.itemList.push({
+                id: 1235, 
+                "product": {
+                    "bestSelling": item.bestSelling ,
+                    "category": item.category,
+                    "id": item.id,
+                    "name": item.name,
+                    "newArrival": item.newArrival,
+                    "price": item.price
+                },
+                "quantity" : item.qty
+            })
+        });
+        order.amount = total ;
+        order.id = 3632;
+        axios.post('http://localhost:8081/api/order/newOrder',order).then((response)=> console.log(response.data));
+        console.log(order)
+    }
 
     return (
         <div className="col-lg-2 col-md-3 col-12">
@@ -12,7 +61,7 @@ const Cart = () => {
                     <a href="www.google.com" className="single-icon"><i className="ti-bag"></i> <span className="total-count">{cart.length}</span></a>
                     <div className="shopping-item">
                         <div className="dropdown-cart-header">
-                            <span>2 Items</span>
+                            <span>{cart.length} Items</span>
                             <a href="www.google.com">View Cart</a>
                         </div>
 
@@ -21,21 +70,20 @@ const Cart = () => {
                             {cart.map((item) => (
                                 <CartItem key={item.id} item={item} />
                             ))}
-                        </ul>
 
+                        </ul>
                         <div className="bottom">
                             <div className="total">
                                 <span>Total</span>
-                                <span className="total-amount">$134.00</span>
+                                <span className="total-amount">{total} MAD</span>
                             </div>
-                            <a href="checkout.html" className="btn animate">Checkout</a>
+                            <a onClick={() => checkout()} className="btn animate">Checkout</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     )
-
 };
 
 export default Cart;

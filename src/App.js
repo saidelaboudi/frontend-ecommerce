@@ -1,18 +1,21 @@
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from './components/Header';
 import Section from './components/Sections';
 import Categories from './components/Categories';
 import Footer from './components/Footer';
-import Store from './components/Store';
 function App() {
   return (
     <div className="App">
-      <Store>
+      <Router>
         <Header />
         <Section />
-        <Categories />
+        <Switch>
+          <Route exact path="/" component={Categories} />
+          <Route>404!</Route>
+        </Switch>
         <Footer />
-      </Store>
+      </Router>
     </div>
   );
 }
