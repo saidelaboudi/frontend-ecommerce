@@ -3,6 +3,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts, setCategories } from "../redux/action/product-actions"
 import Products from './Products';
+import Section from './Sections';
+
 const HOST = 'http://localhost:8081';
 
 const Categories = () => {
@@ -58,6 +60,7 @@ const Categories = () => {
 
     return (
         <>
+            <Section />
             <div className="product-area section" >
                 <div className="container" >
                     <div className="row" >
