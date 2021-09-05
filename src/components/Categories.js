@@ -5,7 +5,7 @@ import { setProducts, setCategories } from "../redux/action/product-actions"
 import Products from './Products';
 import Section from './Sections';
 
-const HOST = 'http://localhost:8081';
+const HOST = 'http://localhost:8095';
 
 const Categories = () => {
 
@@ -24,8 +24,9 @@ const Categories = () => {
     };
 
     const chargeProduct = async (category) => {
-        const test2 = axios.get(HOST + '/api/product/category/' + category.id).then((response) => {
+        const test2 = axios.get(HOST + '/api/products/category/' + category.id).then((response) => {
             dispatch(setProducts(response.data));
+            console.log(response.data)
         });
 
         var a = document.getElementsByClassName("nav-link")
