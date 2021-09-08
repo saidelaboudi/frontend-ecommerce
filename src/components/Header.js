@@ -133,17 +133,9 @@ const Header = () => {
 											<div className="nav-inner">
 												<ul className="nav main-menu menu navbar-nav">
 													<li className="active"><a href="/">Home</a></li>
-													<li><a href="shop-grid">Product</a></li>
-													<li><a >Service</a></li>
-
-													<li><a >Shop<i className="ti-angle-down"></i><span className="new">New</span></a>
-														<ul className="dropdown">
-															<li><a href="shop-grid">Shop Grid</a></li>
-															<li><a href="cart">Cart</a></li>
-															<li><a href="checkout">Checkout</a></li>
-														</ul>
-													</li>
-													<li><a >Pages</a></li>
+													<li><a href="shop-grid">Shop Grid</a></li>
+													<li><a href="cart">Cart</a></li>
+													<li><a href="checkout">Checkout</a></li>
 													<li><a href="/contactUs">Contact Us</a></li>
 												</ul>
 											</div>
