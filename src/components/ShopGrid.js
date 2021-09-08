@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { setProducts, setCategories } from "../redux/action/product-actions"
+import { setProducts, setCategories ,setCart } from "../redux/action/product-actions"
 import Products from './Products';
 import axios from 'axios';
 

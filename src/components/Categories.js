@@ -8,10 +8,10 @@ import Section from './Sections';
 const HOST = 'http://localhost:8095';
 
 const Categories = () => {
-
+    
     const products = useSelector((state) => state.products.products);
     const categories = useSelector((state) => state.categories.categories);
-
+    const cart = useSelector((state)=>state.cart.cart)
     const dispatch = useDispatch();
 
     const init = async () => {

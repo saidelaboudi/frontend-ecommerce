@@ -1,13 +1,11 @@
 import React from "react";
 import CartItem from "./CartItem";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setCart } from '../redux/action/product-actions'
 import axios from "axios";
 
 const Cart = () => {
-
-
-
+    const dispatch = useDispatch()
     const cart = useSelector((state) => state.cart.cart);
     var total = 0;
     cart.forEach((element) => {
@@ -55,8 +53,6 @@ const Cart = () => {
         order.id = 3632;
         axios.post('http://localhost:8081/api/order/newOrder', order).then((response) => console.log(response.data));
         console.log(order)
-
-        window.localStorage.setItem('cart', JSON.stringify(cart));
     }
 
     return (

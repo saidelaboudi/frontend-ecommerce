@@ -1,13 +1,8 @@
 import React from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import { setCart } from '../redux/action/product-actions';
-
-console.log((JSON.parse(window.localStorage.getItem('cart'))))
+import { useSelector } from 'react-redux';
 
 const CartPage = () => {
-    const dispatch = useDispatch();
-    dispatch(setCart(JSON.parse(window.localStorage.getItem('cart'))));
-    const cart = useSelector((state) => state.cart.cart);
+    const cart = useSelector((state)=>state.cart.cart)
     return (
         <div class="shopping-cart section">
             <div class="container">
