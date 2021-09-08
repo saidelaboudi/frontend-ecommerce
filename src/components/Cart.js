@@ -1,9 +1,12 @@
 import React from "react";
 import CartItem from "./CartItem";
 import { useSelector } from "react-redux";
+import { setCart } from '../redux/action/product-actions'
 import axios from "axios";
 
 const Cart = () => {
+
+
 
     const cart = useSelector((state) => state.cart.cart);
     var total = 0;
@@ -36,22 +39,24 @@ const Cart = () => {
         }
         cart.map((item) => {
             order.itemList.push({
-                id: 1235, 
+                id: 1235,
                 "product": {
-                    "bestSelling": item.bestSelling ,
+                    "bestSelling": item.bestSelling,
                     "category": item.category,
                     "id": item.id,
                     "name": item.name,
                     "newArrival": item.newArrival,
                     "price": item.price
                 },
-                "quantity" : item.qty
+                "quantity": item.qty
             })
         });
-        order.amount = total ;
+        order.amount = total;
         order.id = 3632;
-        axios.post('http://localhost:8081/api/order/newOrder',order).then((response)=> console.log(response.data));
+        axios.post('http://localhost:8081/api/order/newOrder', order).then((response) => console.log(response.data));
         console.log(order)
+
+        window.localStorage.setItem('cart', JSON.stringify(cart));
     }
 
     return (
@@ -77,7 +82,7 @@ const Cart = () => {
                                 <span>Total</span>
                                 <span className="total-amount">{total} MAD</span>
                             </div>
-                            <a onClick={() => checkout()} className="btn animate">Checkout</a>
+                            <a href="cart" onClick={() => checkout()} className="btn animate">CART</a>
                         </div>
                     </div>
                 </div>

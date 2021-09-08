@@ -33,6 +33,8 @@ export const addProductToCart = (state = initialState, { type, payload }) => {
             )
           : [...state.cart, { ...item, qty: 1 }],
       };
+      case ActionTypes.SET_CART:
+        return { ...state, cart: payload }
     default:
       return state;
   }

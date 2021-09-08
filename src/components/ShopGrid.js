@@ -7,19 +7,15 @@ import axios from 'axios';
 const HOST = 'http://localhost:8095';
 
 const ShopGrid = () => {
-
 	const products = useSelector((state) => state.products.products);
 	const categories = useSelector((state) => state.categories.categories);
-
 	const dispatch = useDispatch();
-
 	const init = async () => {
 		const test = axios.get(HOST + '/api/category').then((response) => {
 			dispatch(setCategories(response.data))
 		});
 		chargeProduct()
 	};
-
 	const chargeProduct = async () => {
 		const test2 = axios.get(HOST + '/api/products/all').then((response) => {
 			dispatch(setProducts(response.data));
@@ -32,12 +28,10 @@ const ShopGrid = () => {
 			console.log(response.data)
 		});
 	};
-
 	useEffect(() => {
 		init()
 	}, []
 	);
-
 	const AllCategories = () =>categories && categories.map((category) => {
 		const { id, name, description } = category;
 		return (
@@ -48,7 +42,6 @@ const ShopGrid = () => {
 			</li>
 		)
 	});
-
 	return (
 		<section className="product-area shop-sidebar shop section">
 			<div className="container">
@@ -139,16 +132,6 @@ const ShopGrid = () => {
 										</ul>
 									</div>
 								</div>
-							</div>
-							<div className="single-widget category">
-								<h3 className="title">Manufacturers</h3>
-								<ul className="categor-list">
-									<li><a href="#">Forever</a></li>
-									<li><a href="#">giordano</a></li>
-									<li><a href="#">abercrombie</a></li>
-									<li><a href="#">ecko united</a></li>
-									<li><a href="#">zara</a></li>
-								</ul>
 							</div>
 						</div>
 					</div>

@@ -1,12 +1,20 @@
 import React from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { setCart } from '../redux/action/product-actions';
+
+console.log((JSON.parse(window.localStorage.getItem('cart'))))
 
 const CartPage = () => {
+    const dispatch = useDispatch();
+    dispatch(setCart(JSON.parse(window.localStorage.getItem('cart'))));
+    const cart = useSelector((state) => state.cart.cart);
     return (
         <div class="shopping-cart section">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <table class="table shopping-summery">
+
                             <thead>
                                 <tr class="main-hading">
                                     <th>PRODUCT</th>
@@ -17,83 +25,40 @@ const CartPage = () => {
                                     <th class="text-center"><i class="ti-trash remove-icon"></i></th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="image" data-title="No"><img src="https://via.placeholder.com/100x100" alt="#" /></td>
-                                    <td class="product-des" data-title="Description">
-                                        <p class="product-name"><a href="#">Women Dress</a></p>
-                                        <p class="product-des">Maboriosam in a tonto nesciung eget  distingy magndapibus.</p>
-                                    </td>
-                                    <td class="price" data-title="Price"><span>$110.00 </span></td>
-                                    <td class="qty" data-title="Qty">
-                                        <div class="input-group">
-                                            <div class="button minus">
-                                                <button type="button" class="btn btn-primary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
-                                                    <i class="ti-minus"></i>
-                                                </button>
-                                            </div>
-                                            <input type="text" name="quant[1]" class="input-number" data-min="1" data-max="100" value="1" />
-                                            <div class="button plus">
-                                                <button type="button" class="btn btn-primary btn-number" data-type="plus" data-field="quant[1]">
-                                                    <i class="ti-plus"></i>
-                                                </button>
-                                            </div>
-                                        </div>
 
-                                    </td>
-                                    <td class="total-amount" data-title="Total"><span>$220.88</span></td>
-                                    <td class="action" data-title="Remove"><a href="#"><i class="ti-trash remove-icon"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td class="image" data-title="No"><img src="https://via.placeholder.com/100x100" alt="#" /></td>
-                                    <td class="product-des" data-title="Description">
-                                        <p class="product-name"><a href="#">Women Dress</a></p>
-                                        <p class="product-des">Maboriosam in a tonto nesciung eget  distingy magndapibus.</p>
-                                    </td>
-                                    <td class="price" data-title="Price"><span>$110.00 </span></td>
-                                    <td class="qty" data-title="Qty">
-                                        <div class="input-group">
-                                            <div class="button minus">
-                                                <button type="button" class="btn btn-primary btn-number" disabled="disabled" data-type="minus" data-field="quant[2]">
-                                                    <i class="ti-minus"></i>
-                                                </button>
-                                            </div>
-                                            <input type="text" name="quant[2]" class="input-number" data-min="1" data-max="100" value="2" />
-                                            <div class="button plus">
-                                                <button type="button" class="btn btn-primary btn-number" data-type="plus" data-field="quant[2]">
-                                                    <i class="ti-plus"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="total-amount" data-title="Total"><span>$220.88</span></td>
-                                    <td class="action" data-title="Remove"><a href="#"><i class="ti-trash remove-icon"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td class="image" data-title="No"><img src="https://via.placeholder.com/100x100" alt="#" /></td>
-                                    <td class="product-des" data-title="Description">
-                                        <p class="product-name"><a href="#">Women Dress</a></p>
-                                        <p class="product-des">Maboriosam in a tonto nesciung eget  distingy magndapibus.</p>
-                                    </td>
-                                    <td class="price" data-title="Price"><span>$110.00 </span></td>
-                                    <td class="qty" data-title="Qty">
-                                        <div class="input-group">
-                                            <div class="button minus">
-                                                <button type="button" class="btn btn-primary btn-number" disabled="disabled" data-type="minus" data-field="quant[3]">
-                                                    <i class="ti-minus"></i>
-                                                </button>
-                                            </div>
-                                            <input type="text" name="quant[3]" class="input-number" data-min="1" data-max="100" value="3" />
-                                            <div class="button plus">
-                                                <button type="button" class="btn btn-primary btn-number" data-type="plus" data-field="quant[3]">
-                                                    <i class="ti-plus"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="total-amount" data-title="Total"><span>$220.88</span></td>
-                                    <td class="action" data-title="Remove"><a href="#"><i class="ti-trash remove-icon"></i></a></td>
-                                </tr>
+                            <tbody>
+                                {
+                                    cart.map((item) => (
+                                        <tr key={item.id}>
+                                            <td class="image" data-title="No"><img src="https://via.placeholder.com/100x100" alt="#" /></td>
+                                            <td class="product-des" data-title="Description">
+                                                <p class="product-name"><a href="#">{item.name}</a></p>
+                                                <p class="product-des">{item.description}</p>
+                                            </td>
+                                            <td class="price" data-title="Price"><span>{item.description}</span></td>
+                                            <td class="qty" data-title="Qty">
+                                                <div class="input-group">
+                                                    <div class="button minus">
+                                                        <button type="button" class="btn btn-primary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+                                                            <i class="ti-minus"></i>
+                                                        </button>
+                                                    </div>
+                                                    <input type="text" name="quant[1]" class="input-number" data-min="1" data-max="100" value="1" />
+                                                    <div class="button plus">
+                                                        <button type="button" class="btn btn-primary btn-number" data-type="plus" data-field="quant[1]">
+                                                            <i class="ti-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </td>
+                                            <td class="total-amount" data-title="Total"><span>{item.price}</span></td>
+                                            <td class="action" data-title="Remove"><a href="#"><i class="ti-trash remove-icon"></i></a></td>
+                                        </tr>
+
+                                    )
+                                    )
+                                }
                             </tbody>
                         </table>
                     </div>
@@ -138,4 +103,4 @@ const CartPage = () => {
     )
 };
 
-export default CartPage ;
+export default CartPage;
