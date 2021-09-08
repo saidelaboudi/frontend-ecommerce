@@ -4,9 +4,9 @@ import ProductList from './ProductList';
 
 const Product = () => {
     return (
-        <>
-            <ProductForm />
-            <ProductList />
+         <>
+             <ProductForm />
+             <ProductList />
         </>
     );
 };

@@ -3,65 +3,87 @@ import React from 'react';
 
 
 class ProductForm extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            "bestSelling": true,
-            "category": {
-                "description": "string",
-                "id": 8,
-                "name": "string"
-            },
-            "id": 0,
-            "name": "string",
-            "newArrival": true,
-            "price": 0
         }
     }
     handleChange = (event) => {
-        this.setState({ [event.target.name]: event.target.value })
-        console.log()
-        console.log(this.state)
+        this.setState({ [event.target.name]: event.target.files[0] })
+        console.log(event.target.files[0].name);
+        console.log(event.target.files[0].in);
+        console.log(event.target.files[0].description);
+        console.log(event.target.files[0].type);
+        console.log(event.target.files[0]);
     }
     submit = () => {
-        const data = this.state ;
-        console.log(data)
-        axios.post('http://localhost:8095/api/products/newProduct', data);
+        console.log(this.state)
+        axios.post('http://localhost:8095/api/products', this.state, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })//.then((response) => console.log("response", response.data)).catch((err) => console.log("err", err.data));
     }
-
 
     render() {
         return (
-            <div class="card container col-6">
-                <h5 class="card-header">Basic Form</h5>
-                <div class="card-body">
-                    <form onSubmit={this.submit} onChange={this.handleChange} >
-                        <div class="form-group">
-                            <label for="inputText4" class="col-form-label">Titre</label>
-                            <input id="inputPassword" type="text" name="name" placeholder="Titre produit" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label for="inputPassword">Prix :</label>
-                            <input id="inputPassword" type="text" name="price" placeholder="Prix(MAD)" class="form-control" />
-                        </div>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="input-select">Example Select</label>
-                                <select class="form-control" id="input-select" >
-                                    {/* {this.state.AllCategories.map((category) =>
-                                        <option key={category.id} value={category}>{category.name}</option>
-                                    )} */}
-                                </select>
-                            </div>
-                        </div>
-                        <div class="custom-file mb-3">
-                            <input type="file" class="custom-file-input" name="name" id="customFile" />
-                        </div>
-                        <button type="submit">Enregistrer</button>
-                    </form>
-                </div>
-            </div>
-        )
+            <form onChange={this.handleChange}>
+                <input type="file" name="file" />
+                <a onClick={this.submit}>Submit</a>
+            </form>
+        );
+        //     <section class="shop checkout section">
+        //         <div class="container">
+        //             <div class="row">
+        //                 <div class="col-lg-8 col-12">
+        //                     <div class="checkout-form">
+        //                         <h2>Ajouter un produit :</h2>
+        //                         <form class="form" onChange={this.handleChange}>
+        //                             <div class="row">
+        //                                 <div class="col-lg-4 col-md-4 col-12">
+        //                                     <div class="form-group">
+        //                                         <label>Titre :<span>*</span></label>
+        //                                         <input type="text" name="name" placeholder="Titre du produit ...." required="required" />
+        //                                     </div>
+        //                                 </div>
+        //                                 <div class="form-group">
+        //                                     <label>Prix :<span>*</span></label>
+        //                                     <input type="text" name="price" placeholder="Ex :103.05 MAD" required="required" />
+        //                                 </div>
+        //                                 <div class="col-lg-6 col-md-6 col-12">
+        //                                     <div class="form-group">
+        //                                         <label>description :<span>*</span></label>
+        //                                         <input type="textarea" name="description" placeholder="" required="required" />
+        //                                     </div>
+        //                                 </div>
+        //                                 <div class="col-lg-6 col-md-6 col-12">
+        //                                     <div class="form-group">
+        //                                         <label>Categorie :</label>
+        //                                         <select name="country_name" id="country" hidden>
+        //                                             {/* {this.state.AllCategories.map((category) =>
+        //                                                 <option key={category.id} value={category}>{category.name}</option>
+        //                                             )} */}
+        //                                         </select>
+        //                                     </div>
+        //                                 </div>
+        //                                 <div class="col-lg-6 col-md-6 col-12">
+        //                                     <div class="form-group">
+        //                                         <label>Photo :<span>*</span></label>
+        //                                         <input type="file" name="image" style={{ background: '#ffffff', width: '100% ', height: ' 40px', lineHeight: '20px' }}
+        //                                         />
+        //                                     </div>
+        //                                 </div>
+        //                             </div>
+        //                             <div class="button">
+        //                                 <a onClick={this.submit} >Enregistrer</a>
+        //                             </div>
+        //                         </form>
+        //                     </div>
+        //                 </div>
+        //             </div>
+        //         </div>
+        //     </section>
+        // )
     }
 };
 

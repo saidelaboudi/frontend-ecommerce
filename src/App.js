@@ -9,14 +9,16 @@ import ShopGrid from './components/ShopGrid';
 import Checkout from './components/Checkout';
 import Product from './components/Product';
 import Dashboard from './admin/dashboard';
+import Form from './admin/Form';
 
 function App() {
   return (
     <div className="App">
       <Router>
-        {/* <Header /> */}
+        <Header />
         <Switch>
           <Route exact path="/" component={Categories} />
+          <Route exact path="/form" component={Form} />
           <Route path="/contactUs" component={ContactUs} />
           <Route path="/shop-grid" component={ShopGrid} />
           <Route path="/cart" component={CartPage} />

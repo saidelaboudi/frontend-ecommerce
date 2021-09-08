@@ -56,7 +56,8 @@ const Header = () => {
 					<div className="cat-nav-head">
 						<div className="row">
 							<div className="col-lg-3">
-								<div className="all-category">
+
+								{/* <div className="all-category">
 									<h3 className="cat-heading"><i className="fa fa-bars" aria-hidden="true"></i>CATEGORIES</h3>
 									<ul className="main-category">
 										<li><a >New Arrivals <i className="fa fa-angle-right" aria-hidden="true"></i></a>
@@ -121,7 +122,9 @@ const Header = () => {
 										<li><a >westrn dress</a></li>
 										<li><a >denim </a></li>
 									</ul>
-								</div>
+								</div> */}
+
+
 							</div>
 							<div className="col-lg-9 col-12">
 								<div className="menu-area">
@@ -129,9 +132,10 @@ const Header = () => {
 										<div className="navbar-collapse">
 											<div className="nav-inner">
 												<ul className="nav main-menu menu navbar-nav">
-													<li className="active"><a >Home</a></li>
-													<li><a >Product</a></li>
+													<li className="active"><a href="/">Home</a></li>
+													<li><a href="shop-grid">Product</a></li>
 													<li><a >Service</a></li>
+
 													<li><a >Shop<i className="ti-angle-down"></i><span className="new">New</span></a>
 														<ul className="dropdown">
 															<li><a href="shop-grid">Shop Grid</a></li>
