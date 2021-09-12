@@ -37,7 +37,7 @@ const Products = () => {
                             </a> </div >
                             <div className="product-action-2" >
 
-                                <a title="Add to cart" onClick={() => AddToCart({ id, name, category, price, newArivval, bestSelling })}> Add to cart </a>
+                                <a title="Add to cart" onClick={() => AddToCart({ id, name, category, price, image,newArivval, bestSelling })}> Add to cart </a>
 
                             </div >
                         </div>
