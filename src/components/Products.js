@@ -7,13 +7,13 @@ const Products = () => {
     const cart = useSelector((state) => state.cart.cart);
     const dispatch = useDispatch();
     // console.log(cart)
-    const products = useSelector((state) => state.products.products);
+    const products = useSelector((state) => state.products);
     // console.log(products)
     const AddToCart = async (prod) => {
         dispatch(addToCart(prod))
     };
 
-    const renderList = products && products.map((product) => {
+    const renderList = products && Object.values(products).map((product) => {
         const { bestSelling, category, id, image, name, newArivval, price } = product;
         return (
             <div className="col-xl-3 col-lg-4 col-md-4 col-12" key={id}>

@@ -7,8 +7,8 @@ import axios from 'axios';
 const HOST = 'http://localhost:8095';
 
 const ShopGrid = () => {
-	const products = useSelector((state) => state.products.products);
-	const categories = useSelector((state) => state.categories.categories);
+	// const products = useSelector((state) => state.products);
+	const categories = useSelector((state) => state.categories);
 	const dispatch = useDispatch();
 	const init = async () => {
 		const test = axios.get(HOST + '/api/category').then((response) => {
@@ -32,7 +32,7 @@ const ShopGrid = () => {
 		init()
 	}, []
 	);
-	const AllCategories = () =>categories && categories.map((category) => {
+	const AllCategories = () =>categories && Object.values(categories).map((category) => {
 		const { id, name, description } = category;
 		return (
 			<li className="nav-item" key={id} >

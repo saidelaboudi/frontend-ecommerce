@@ -1,12 +1,9 @@
 import React from 'react';
 import Cart from "./Cart";
-import { useSelector , useDispatch} from "react-redux";
-import { setCart } from '../redux/action/product-actions';
+import { useSelector } from "react-redux";
 
 const Header = () => {
-    const dispatch = useDispatch();
-	dispatch(setCart(JSON.parse(window.localStorage.getItem('cart')) ))
-	const categories = useSelector((state) => state.categories.categories);
+	const categories = useSelector((state) => state.categories);
 	return (
 		<header className="header shop">
 			<div className="middle-inner">
@@ -33,10 +30,10 @@ const Header = () => {
 									<select>
 										<option value="selected">All Category</option>
 
-										{categories.map((category) =>
+										 {categories&&Object.values(categories).map((category) =>
 											<option>{category.name}</option>
 										)
-										}
+										} 
 
 									</select>
 									<form>

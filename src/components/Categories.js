@@ -4,15 +4,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { setProducts, setCategories } from "../redux/action/product-actions"
 import Products from './Products';
 import Section from './Sections';
+import PersistedStore from '../PersistedStore';
 
 const HOST = 'http://localhost:8095';
 
 const Categories = () => {
-    
-    const products = useSelector((state) => state.products.products);
-    const categories = useSelector((state) => state.categories.categories);
-    const cart = useSelector((state)=>state.cart.cart)
+    PersistedStore.loadState()
+
+    const products = useSelector((state) => state.products);
+    const categories = useSelector((state) => state.categories);
+    const cart = useSelector((state) => state.cart.cart)
     const dispatch = useDispatch();
+    const state = useSelector((state) => state)
+    console.log(state)
+    console.log("catgeories", categories)
 
     const init = async () => {
         const test = axios.get(HOST + '/api/category').then((response) => {
@@ -47,7 +52,9 @@ const Categories = () => {
     }, []
     );
 
-    const AllCategories = categories && categories.map((category) => {
+    console.log(Object.values(categories))
+
+    const AllCategories = categories && Object.values(categories).map((category) => {
         const { id, name, description } = category;
         return (
             <li className="nav-item" key={id} >

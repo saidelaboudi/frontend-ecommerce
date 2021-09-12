@@ -23,7 +23,7 @@ const CartPage = () => {
 
                             <tbody>
                                 {
-                                    cart.map((item) => (
+                                    Object.values(cart).map((item) => (
                                         <tr key={item.id}>
                                             <td class="image" data-title="No"><img src="https://via.placeholder.com/100x100" alt="#" /></td>
                                             <td class="product-des" data-title="Description">
