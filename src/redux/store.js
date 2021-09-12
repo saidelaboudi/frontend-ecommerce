@@ -9,7 +9,6 @@ const store = createStore(
 );
 
 store.subscribe(() => {
-    console.log("Hello world")
     PersistedStore.saveState(store.getState());
 }); 
 

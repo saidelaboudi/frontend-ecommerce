@@ -32,7 +32,6 @@ class PersistedStore {
     initStore() {
         this._store = createStore(reducers, PersistedStore.loadState(), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
         this._store.subscribe(() => {
-            console.log("hhhhhhlllllllllllllllllllllmmmmmmmmmmmmmmmmpppppppppppppppppppoooooooooooooooo",this._store.getState())
             let serializedState = JSON.stringify(this._store.getState());
             localStorage.setItem(LOCAL_STORAGE_NAME, serializedState);
         });
@@ -49,10 +48,8 @@ class PersistedStore {
         try {
             let serializedState = localStorage.getItem(LOCAL_STORAGE_NAME);
             if (serializedState === null) {
-                console.log("1")
                 return PersistedStore.initialState();
             }
-            console.log("2")
             return JSON.parse(serializedState);
         } catch (err) {
             return PersistedStore.initialState();
@@ -64,7 +61,6 @@ class PersistedStore {
     // in the initStore-method). No need to access this method from the outside
     static saveState(state) {
         try {
-            console.log("storing ...")
             let serializedState = JSON.stringify(state);
             localStorage.setItem(LOCAL_STORAGE_NAME, serializedState);
         } catch (err) {

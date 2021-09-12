@@ -17,13 +17,8 @@ export const addProductToCart = (state =  initialState , { type, payload }) => {
   switch (type) {
     case ActionTypes.ADD_PRODUCT_TO_CART:
       const item = payload.id
-      console.log(payload)
-      
       const inCart = state.cart.find((item) => item.id === payload.id.id ? true : false);
 
-      console.log("*/*/*/*/*/*/*/*/", inCart)
-      console.log(state.cart)
-      console.log(state)
       return {
         ...state,
         cart: inCart

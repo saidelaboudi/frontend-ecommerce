@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
 const Cart = () => {
-    const dispatch = useDispatch()
     const cart = useSelector((state) => state.cart.cart);
     var total = 0;
     cart && cart.map((element) => {
@@ -51,7 +50,6 @@ const Cart = () => {
         order.amount = total;
         order.id = 3632;
         axios.post('http:localhost:8081/api/order/newOrder', order).then((response) => console.log(response.data));
-        console.log(order)
     }
 
     return (

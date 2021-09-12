@@ -6,9 +6,7 @@ import { addToCart } from "../redux/action/product-actions"
 const Products = () => {
     const cart = useSelector((state) => state.cart.cart);
     const dispatch = useDispatch();
-    // console.log(cart)
     const products = useSelector((state) => state.products);
-    // console.log(products)
     const AddToCart = async (prod) => {
         dispatch(addToCart(prod))
     };

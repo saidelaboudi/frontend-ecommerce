@@ -13,11 +13,8 @@ const Categories = () => {
 
     const products = useSelector((state) => state.products);
     const categories = useSelector((state) => state.categories);
-    const cart = useSelector((state) => state.cart.cart)
     const dispatch = useDispatch();
-    const state = useSelector((state) => state)
-    console.log(state)
-    console.log("catgeories", categories)
+
 
     const init = async () => {
         const test = axios.get(HOST + '/api/category').then((response) => {
@@ -31,7 +28,6 @@ const Categories = () => {
     const chargeProduct = async (category) => {
         const test2 = axios.get(HOST + '/api/products/category/' + category.id).then((response) => {
             dispatch(setProducts(response.data));
-            console.log(response.data)
         });
 
         var a = document.getElementsByClassName("nav-link")
@@ -52,7 +48,6 @@ const Categories = () => {
     }, []
     );
 
-    console.log(Object.values(categories))
 
     const AllCategories = categories && Object.values(categories).map((category) => {
         const { id, name, description } = category;

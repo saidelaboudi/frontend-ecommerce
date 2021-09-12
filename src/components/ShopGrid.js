@@ -19,13 +19,11 @@ const ShopGrid = () => {
 	const chargeProduct = async () => {
 		const test2 = axios.get(HOST + '/api/products/all').then((response) => {
 			dispatch(setProducts(response.data));
-			console.log(response.data)
 		});
 	};
 	const chargeProductByCategory = async (category) => {
 		const test2 = axios.get(HOST + '/api/products/category/' + category.id).then((response) => {
 			dispatch(setProducts(response.data));
-			console.log(response.data)
 		});
 	};
 	useEffect(() => {
