@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 var categories = [];   
-axios.get('http://localhost:8095/api/category').then( response=> {{categories = response.data}});
+let test =axios.get('http://localhost:8095/api/category').then( response=> {{categories = response.data}});
 const CategoryList = () => {
     return (
         <div class="card-body">

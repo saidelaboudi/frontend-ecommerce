@@ -1,21 +1,25 @@
 import React from 'react';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { setCart } from '../redux/reducer/product-reducer';
 
 const Checkout = () => {
     const cart1 = useSelector((state) => state.cart.cart);
+    const dispatch = useDispatch();
     return (
         <>
-            <Check cart={cart1} />
+            <Check cart={cart1} dispatch={dispatch} />
         </>
     )
 }
 
 const submitCart = (cart, user) => {
+
     var a = {
         "amount": 0,
         "id": 0,
-        "itemList": []
+        "itemList": [],
+        "user": {}
     }
 
     cart.map((product) => {
@@ -36,12 +40,17 @@ const submitCart = (cart, user) => {
         )
         a.amount += product.qty * product.price;
     })
-    
-    axios.post('http://localhost:8095/api/order/newOrder',a)
+
+    a.user = user
+
+
+    axios.post('http://localhost:8095/api/order/newOrder', a)
+    localStorage.clear();
+    this.props.dispatch(setCart({}))
 }
 
 class Check extends React.Component {
-    
+
     constructor(props) {
         super(props)
         this.state = {
@@ -58,10 +67,10 @@ class Check extends React.Component {
     }
 
     submit = () => {
-        axios.post('http://localhost:8095/api/users', this.state)
+        // axios.post('http://localhost:8095/api/users', this.state)
         submitCart(this.props.cart, this.state)
     }
-    
+
     change = (event) => {
         this.setState({ [event.target.name]: event.target.value });
     }
