@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { HOST } from "./Constantes";
 
+import { HOST } from "./Constantes";
+
 
 const Cart = () => {
     const cart = useSelector((state) => state.cart.cart);
