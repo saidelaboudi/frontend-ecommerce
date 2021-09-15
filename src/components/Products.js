@@ -24,7 +24,7 @@ const Products = () => {
                     <div className="product-img" >
                         <a href="product-details.html" >
                             <img className="default-img"  src={`data:image/jpeg;base64,${image.data}`} alt="#" />
-                            <img className="hover-img" src="https://via.placeholder.com/550x750" alt="#" />
+                            <img className="hover-img" src={`data:image/jpeg;base64,${image.data}`}  alt="#" />
                         </a> <div className="button-head" ><div className="product-action" >
                             <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="">
                                 <i className=" ti-eye" >
