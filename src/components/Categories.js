@@ -5,6 +5,7 @@ import { setProducts, setCategories } from "../redux/action/product-actions"
 import Products from './Products';
 import Section from './Sections';
 import PersistedStore from '../PersistedStore';
+import TrendingProducts from './TrendingProducts';
 
 const HOST = 'http://localhost:8095';
 
@@ -89,7 +90,7 @@ const Categories = () => {
                                     role="tabpanel" >
                                     <div className="tab-single" >
                                         <div className="row" >
-                                            <Products />
+                                            <TrendingProducts />
                                         </div>
                                     </div >
                                 </div>

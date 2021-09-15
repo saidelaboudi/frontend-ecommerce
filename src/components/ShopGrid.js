@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setProducts, setCategories ,setCart } from "../redux/action/product-actions"
 import Products from './Products';
 import axios from 'axios';
+import RecentProducts from './RecentProducts';
 
 const HOST = 'http://localhost:8095';
 
@@ -28,7 +29,6 @@ const ShopGrid = () => {
 			if(res.status == 200){
 				let data = res.data
 				dispatch(setProducts(data));
-				console.log("-*-",data)
 			}
 		})
 	};
@@ -40,7 +40,6 @@ const ShopGrid = () => {
 	
 	const AllCategories = () =>categories && Object.values(categories).map((category) => {
 		const { id, name, description } = category;
-		console.log("-----",category)
 		return (
 			<li className="nav-item" key={id} >
 				<a className="nav-link" id={"Categorie" + id}  onClick={ () => { chargeProductByCategory({ id, name, description }) }} >
@@ -95,57 +94,9 @@ const ShopGrid = () => {
 
 							</div>
 
-							<div className="single-widget recent-post">
-								<h3 className="title">Recent post</h3>
-								<div className="single-post first">
-									<div className="image">
-										<img src="https://via.placeholder.com/75x75" alt="#" />
-									</div>
-									<div className="content">
-										<h5><a href="#">Girls Dress</a></h5>
-										<p className="price">$99.50</p>
-										<ul className="reviews">
-											<li className="yellow"><i className="ti-star"></i></li>
-											<li className="yellow"><i className="ti-star"></i></li>
-											<li className="yellow"><i className="ti-star"></i></li>
-											<li><i className="ti-star"></i></li>
-											<li><i className="ti-star"></i></li>
-										</ul>
-									</div>
-								</div>
-								<div className="single-post first">
-									<div className="image">
-										<img src="https://via.placeholder.com/75x75" alt="#" />
-									</div>
-									<div className="content">
-										<h5><a href="#">Women Clothings</a></h5>
-										<p className="price">$99.50</p>
-										<ul className="reviews">
-											<li className="yellow"><i className="ti-star"></i></li>
-											<li className="yellow"><i className="ti-star"></i></li>
-											<li className="yellow"><i className="ti-star"></i></li>
-											<li className="yellow"><i className="ti-star"></i></li>
-											<li><i className="ti-star"></i></li>
-										</ul>
-									</div>
-								</div>
-								<div className="single-post first">
-									<div className="image">
-										<img src="https://via.placeholder.com/75x75" alt="#" />
-									</div>
-									<div className="content">
-										<h5><a href="#">Man Tshirt</a></h5>
-										<p className="price">$99.50</p>
-										<ul className="reviews">
-											<li className="yellow"><i className="ti-star"></i></li>
-											<li className="yellow"><i className="ti-star"></i></li>
-											<li className="yellow"><i className="ti-star"></i></li>
-											<li className="yellow"><i className="ti-star"></i></li>
-											<li className="yellow"><i className="ti-star"></i></li>
-										</ul>
-									</div>
-								</div>
-							</div>
+							<RecentProducts />
+
+
 						</div>
 					</div>
 					<div className="col-lg-9 col-md-8 col-12">
