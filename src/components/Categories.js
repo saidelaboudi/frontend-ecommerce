@@ -6,7 +6,8 @@ import Section from './Sections';
 import PersistedStore from '../PersistedStore';
 import TrendingProducts from './TrendingProducts';
 
-const HOST =  process.env.HOST ;
+import { HOST } from "./Constantes";
+
 
 const Categories = () => {
     PersistedStore.loadState()

@@ -1,0 +1,1 @@
+export const HOST = "https://api-v1.azurewebsites.net";

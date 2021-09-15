@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { setCart } from '../redux/reducer/product-reducer';
 
-const HOST =  process.env.HOST ;
+import { HOST } from "./Constantes";
+
 
 const Checkout = () => {
     const cart1 = useSelector((state) => state.cart.cart);

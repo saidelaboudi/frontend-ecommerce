@@ -2,8 +2,8 @@ import React from "react";
 import CartItem from "./CartItem";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import { HOST } from "./Constantes";
 
-const HOST =  process.env.HOST ;
 
 const Cart = () => {
     const cart = useSelector((state) => state.cart.cart);

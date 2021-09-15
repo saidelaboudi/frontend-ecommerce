@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
-const HOST =  process.env.HOST ;
+import { HOST } from "./Constantes";
+
 
 
 const ContactUs = () => {

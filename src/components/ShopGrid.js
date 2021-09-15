@@ -5,7 +5,8 @@ import Products from './Products';
 import axios from 'axios';
 import RecentProducts from './RecentProducts';
 
-const HOST =  process.env.HOST ;
+import { HOST } from "./Constantes";
+
 
 const ShopGrid = () => {
 	const categories = useSelector((state) => state.categories.categories);
