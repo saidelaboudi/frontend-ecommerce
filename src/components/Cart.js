@@ -8,7 +8,7 @@ const HOST =  process.env.HOST ;
 const Cart = () => {
     const cart = useSelector((state) => state.cart.cart);
     var total = 0;
-    cart && cart.map((element) => {
+    cart && cart.forEach(element => {
         total += element.qty * element.price;
     });
 
@@ -35,7 +35,7 @@ const Cart = () => {
                 }
             ]
         }
-        cart.map((item) => {
+        cart.forEach(item => {
             order.itemList.push({
                 id: 1235,
                 "product": {

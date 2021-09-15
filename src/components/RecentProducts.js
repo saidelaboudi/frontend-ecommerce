@@ -6,8 +6,9 @@ const RecentProducts = () => {
 
     const renderList = products && Object.values(products).map((product) => {
         const { id, name, newArrival, price } = product;
+        var list ;
         if (newArrival)
-            return (
+            list = (
                 <div className="single-post first" key={id}>
                     <div className="image">
                         <img src="https://via.placeholder.com/75x75" alt="#" />
@@ -24,7 +25,9 @@ const RecentProducts = () => {
                         </ul>
                     </div>
                 </div>
-            );
+            )
+
+            return list ;
     });
 
     return (

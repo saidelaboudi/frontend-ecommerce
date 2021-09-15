@@ -17,7 +17,7 @@ const TrendingProducts = () => {
         console.log(product)
         const { bestSelling, category, id, image, name, newArivval, price } = product;
         if (bestSelling)
-            return (
+            var list = (
                 <div className="col-xl-3 col-lg-4 col-md-4 col-12" key={id}>
 
                     <div className="single-product" >
@@ -57,10 +57,9 @@ const TrendingProducts = () => {
                     </div >
                 </div>
             );
+        return list;
     }
     )
-
-
     return <>{renderList}</>
 };
 

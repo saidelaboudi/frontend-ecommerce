@@ -6,6 +6,7 @@ const CartPage = () => {
     var total = 0;
     cart && cart.map((element) => {
         total += element.qty * element.price;
+        return total;
     });
     return (
         <div className="shopping-cart section">
@@ -27,40 +28,43 @@ const CartPage = () => {
 
                             <tbody>
                                 {
-                                    Object.values(cart).map((item) => (
-                                        <tr key={item.id}>
+                                    Object.values(cart).map((item) => {
+                                        (
+                                            <tr key={item.id}>
 
-                                            <td className="image" data-title="No"><img src="https://via.placeholder.com/100x100" alt="#" /></td>
+                                                <td className="image" data-title="No"><img src="https://via.placeholder.com/100x100" alt="#" /></td>
 
-                                            <td className="product-des" data-title="Description">
-                                                <p className="product-name"><a href="/#">{item.name}</a></p>
-                                                <p className="product-des">{item.description}</p>
-                                            </td>
+                                                <td className="product-des" data-title="Description">
+                                                    <p className="product-name"><a href="/#">{item.name}</a></p>
+                                                    <p className="product-des">{item.description}</p>
+                                                </td>
 
-                                            <td className="price" data-title="Price"><span>{item.price} MAD</span></td>
+                                                <td className="price" data-title="Price"><span>{item.price} MAD</span></td>
 
-                                            <td className="qty" data-title="Qty">
-                                                <div className="input-group">
-                                                    <div className="button minus">
-                                                        <button type="button" className="btn btn-primary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
-                                                            <i className="ti-minus"></i>
-                                                        </button>
+                                                <td className="qty" data-title="Qty">
+                                                    <div className="input-group">
+                                                        <div className="button minus">
+                                                            <button type="button" className="btn btn-primary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+                                                                <i className="ti-minus"></i>
+                                                            </button>
+                                                        </div>
+                                                        <input type="text" name="quant[1]" className="input-number" data-min="1" data-max="100" value={item.qty} />
+                                                        <div className="button plus">
+                                                            <button type="button" className="btn btn-primary btn-number" data-type="plus" data-field="quant[1]">
+                                                                <i className="ti-plus"></i>
+                                                            </button>
+                                                        </div>
                                                     </div>
-                                                    <input type="text" name="quant[1]" className="input-number" data-min="1" data-max="100" value={item.qty} />
-                                                    <div className="button plus">
-                                                        <button type="button" className="btn btn-primary btn-number" data-type="plus" data-field="quant[1]">
-                                                            <i className="ti-plus"></i>
-                                                        </button>
-                                                    </div>
-                                                </div>
 
-                                            </td>
+                                                </td>
 
-                                            <td className="total-amount" data-title="Total"><span>{item.price * item.qty} MAD</span></td>
-                                            <td className="action" data-title="Remove"><a href="/#"><i className="ti-trash remove-icon"></i></a></td>
-                                        </tr>
+                                                <td className="total-amount" data-title="Total"><span>{item.price * item.qty} MAD</span></td>
+                                                <td className="action" data-title="Remove"><a href="/#"><i className="ti-trash remove-icon"></i></a></td>
+                                            </tr>
 
-                                    )
+                                        )
+                                        return 0;
+                                    }
                                     )
                                 }
                             </tbody>

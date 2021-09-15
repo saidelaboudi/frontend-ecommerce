@@ -44,19 +44,20 @@ const Categories = () => {
 
     useEffect(() => {
         init()
-    }, []
+    },
     );
 
 
     const AllCategories = categories && Object.values(categories).map((category) => {
         const { id, name, description } = category;
-        return (
+        var list =(
             <li className="nav-item" key={id} >
                 <a className="nav-link" id={"Categorie" + id} data-toggle="tab" href="#man" role="tab" onClick={() => { chargeProduct({ id, name, description }) }} >
                     {name}
                 </a>
             </li>
         )
+        return list ;
     }
     );
 
