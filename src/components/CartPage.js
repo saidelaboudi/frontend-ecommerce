@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 const CartPage = () => {
     const cart = useSelector((state) => state.cart.cart)
     var total = 0;
-    cart && cart.forEach((element) => {
+    cart && cart.map((element) => {
         total += element.qty * element.price;
     });
     return (
@@ -27,7 +27,7 @@ const CartPage = () => {
 
                             <tbody>
                                 {
-                                    Object.values(cart).forEach((item) => (
+                                    Object.values(cart).map((item) => (
                                         <tr key={item.id}>
 
                                             <td className="image" data-title="No"><img src="https://via.placeholder.com/100x100" alt="#" /></td>

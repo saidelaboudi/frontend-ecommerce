@@ -13,7 +13,7 @@ const TrendingProducts = () => {
     };
 
 
-    const renderList = products && Object.values(products).forEach((product) => {
+    const renderList = products && Object.values(products).map((product) => {
         console.log(product)
         const { bestSelling, category, id, image, name, newArivval, price } = product;
         if (bestSelling)

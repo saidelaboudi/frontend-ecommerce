@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts, setCategories } from "../redux/action/product-actions"
 import Section from './Sections';
@@ -41,13 +41,18 @@ const Categories = () => {
         }
     };
 
-    init()
+
+    useEffect(() => {
+        init()
+    }, []
+    );
+
 
     const AllCategories = categories && Object.values(categories).map((category) => {
         const { id, name, description } = category;
         return (
             <li className="nav-item" key={id} >
-                <a className="nav-link" id={"Categorie" + id} data-toggle="tab" role="tab" onClick={() => { chargeProduct({ id, name, description }) }} href="/#" >
+                <a className="nav-link" id={"Categorie" + id} data-toggle="tab" href="#man" role="tab" onClick={() => { chargeProduct({ id, name, description }) }} >
                     {name}
                 </a>
             </li>

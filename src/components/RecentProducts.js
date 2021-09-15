@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 const RecentProducts = () => {
     const products = useSelector((state) => state.products.products);
 
-    const renderList = products && Object.values(products).forEach((product) => {
+    const renderList = products && Object.values(products).map((product) => {
         const { id, name, newArrival, price } = product;
         if (newArrival)
             return (

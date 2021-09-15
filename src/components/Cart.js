@@ -8,7 +8,7 @@ const HOST =  process.env.HOST ;
 const Cart = () => {
     const cart = useSelector((state) => state.cart.cart);
     var total = 0;
-    cart && cart.forEach((element) => {
+    cart && cart.map((element) => {
         total += element.qty * element.price;
     });
 
@@ -35,7 +35,7 @@ const Cart = () => {
                 }
             ]
         }
-        cart.forEach((item) => {
+        cart.map((item) => {
             order.itemList.push({
                 id: 1235,
                 "product": {
@@ -67,7 +67,7 @@ const Cart = () => {
 
                         <ul className="shopping-list">
 
-                            {cart.forEach((item) => (
+                            {cart.map((item) => (
                                 <CartItem key={item.id} item={item} />
                             ))}
 
