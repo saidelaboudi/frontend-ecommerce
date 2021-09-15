@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 const CartPage = () => {
-    const cart = useSelector((state)=>state.cart.cart)
+    const cart = useSelector((state) => state.cart.cart)
     var total = 0;
     cart && cart.map((element) => {
         total += element.qty * element.price;
@@ -36,9 +36,9 @@ const CartPage = () => {
                                                 <p class="product-name"><a href="#">{item.name}</a></p>
                                                 <p class="product-des">{item.description}</p>
                                             </td>
-                                            
+
                                             <td class="price" data-title="Price"><span>{item.price} MAD</span></td>
-                                            
+
                                             <td class="qty" data-title="Qty">
                                                 <div class="input-group">
                                                     <div class="button minus">
@@ -56,7 +56,7 @@ const CartPage = () => {
 
                                             </td>
 
-                                            <td class="total-amount" data-title="Total"><span>{item.price*item.qty} MAD</span></td>
+                                            <td class="total-amount" data-title="Total"><span>{item.price * item.qty} MAD</span></td>
                                             <td class="action" data-title="Remove"><a href="#"><i class="ti-trash remove-icon"></i></a></td>
                                         </tr>
 

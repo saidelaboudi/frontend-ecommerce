@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { setProducts, setCategories ,setCart } from "../redux/action/product-actions"
+import { setProducts, setCategories, setCart } from "../redux/action/product-actions"
 import Products from './Products';
 import axios from 'axios';
 import RecentProducts from './RecentProducts';
 
-const HOST = 'http://localhost:8095';
+const HOST = 'http://' + process.env.HOST + ':' + process.env.PORT;
 
 const ShopGrid = () => {
 	const products = useSelector((state) => state.products.products);
@@ -23,32 +23,32 @@ const ShopGrid = () => {
 			dispatch(setProducts(response.data));
 		});
 	};
-	
+
 	const chargeProductByCategory = async (category) => {
-		await axios.get(HOST + '/api/category/' + category.id).then((res)=>{
-			if(res.status == 200){
+		await axios.get(HOST + '/api/category/' + category.id).then((res) => {
+			if (res.status == 200) {
 				let data = res.data
 				dispatch(setProducts(data));
 			}
 		})
 	};
-	
+
 	useEffect(() => {
 		init()
 	}, []
 	);
-	
-	const AllCategories = () =>categories && Object.values(categories).map((category) => {
+
+	const AllCategories = () => categories && Object.values(categories).map((category) => {
 		const { id, name, description } = category;
 		return (
 			<li className="nav-item" key={id} >
-				<a className="nav-link" id={"Categorie" + id}  onClick={ () => { chargeProductByCategory({ id, name, description }) }} >
+				<a className="nav-link" id={"Categorie" + id} onClick={() => { chargeProductByCategory({ id, name, description }) }} >
 					{name}
 				</a>
 			</li>
 		)
 	});
-	
+
 	return (
 		<section className="product-area shop-sidebar shop section">
 			<div className="container">
@@ -58,7 +58,7 @@ const ShopGrid = () => {
 							<div className="single-widget category">
 								<h3 className="title">Categories</h3>
 								<ul className="categor-list">
-									
+
 									<AllCategories />
 
 								</ul>
@@ -131,9 +131,9 @@ const ShopGrid = () => {
 						</div>
 						<div className="tab-single" >
 							<div className="row" >
-								
+
 								<Products />
-							
+
 							</div>
 						</div >
 					</div>

@@ -3,6 +3,8 @@ import CartItem from "./CartItem";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
+const HOST = 'http://' + process.env.HOST + ':' + process.env.PORT;
+
 const Cart = () => {
     const cart = useSelector((state) => state.cart.cart);
     var total = 0;
@@ -49,7 +51,7 @@ const Cart = () => {
         });
         order.amount = total;
         order.id = 3632;
-        axios.post('http:localhost:8081/api/order/newOrder', order).then((response) => console.log(response.data));
+        axios.post(HOST + '/api/order/newOrder', order).then((response) => console.log(response.data));
     }
 
     return (
@@ -59,7 +61,7 @@ const Cart = () => {
                     <a href="www.google.com" className="single-icon"><i className="ti-bag"></i> <span className="total-count">{cart.length}</span></a>
                     <div className="shopping-item">
                         <div className="dropdown-cart-header">
-                            <span>{cart.length} Items</span> 
+                            <span>{cart.length} Items</span>
                             <a href="www.google.com">View Cart</a>
                         </div>
 

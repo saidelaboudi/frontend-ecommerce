@@ -30,10 +30,10 @@ const Header = () => {
 									<select>
 										<option value="selected">All Category</option>
 
-										 {categories&&Object.values(categories).map((category) =>
+										{categories && Object.values(categories).map((category) =>
 											<option>{category.name}</option>
 										)
-										} 
+										}
 
 									</select>
 									<form>

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 
-const HOST = 'http://localhost:8095';
+const HOST = 'http://' + process.env.HOST + ':' + process.env.PORT;
 
 const Footer = () => {
     var contact = {

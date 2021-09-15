@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { setCart } from '../redux/reducer/product-reducer';
 
+const HOST = 'http://' + process.env.HOST + ':' + process.env.PORT;
+
 const Checkout = () => {
     const cart1 = useSelector((state) => state.cart.cart);
     const dispatch = useDispatch();
@@ -44,7 +46,7 @@ const submitCart = (cart, user) => {
     a.user = user
 
 
-    axios.post('http://localhost:8095/api/order/newOrder', a)
+    axios.post(HOST + '/order/newOrder', a)
     localStorage.clear();
     this.props.dispatch(setCart({}))
 }
@@ -152,7 +154,7 @@ class Check extends React.Component {
                 <div className="google-btn">
                     <div className="mt-4">
                         <a className="btn google google-icon-wrapper" target="popup"
-                            href="http://localhost:8095/login">
+                            href="'HOST'/login">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google" /><b>  Sign in with google</b></a>
                     </div>
                 </div>

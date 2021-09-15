@@ -4,14 +4,14 @@ import { addToCart } from "../redux/action/product-actions"
 
 
 const Products = () => {
-    
+
     const products = useSelector((state) => state.products.products);
     const dispatch = useDispatch();
 
     const AddToCart = async (prod) => {
         dispatch(addToCart(prod))
     };
-    
+
     console.log(products)
 
     const renderList = products && Object.values(products).map((product) => {
@@ -23,8 +23,8 @@ const Products = () => {
                 <div className="single-product" >
                     <div className="product-img" >
                         <a href="product-details.html" >
-                            <img className="default-img"  src={`data:image/jpeg;base64,${image.data}`} alt="#" />
-                            <img className="hover-img" src={`data:image/jpeg;base64,${image.data}`}  alt="#" />
+                            <img className="default-img" src={`data:image/jpeg;base64,${image.data}`} alt="#" />
+                            <img className="hover-img" src={`data:image/jpeg;base64,${image.data}`} alt="#" />
                         </a> <div className="button-head" ><div className="product-action" >
                             <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="">
                                 <i className=" ti-eye" >
@@ -41,7 +41,7 @@ const Products = () => {
                             </a> </div >
                             <div className="product-action-2" >
 
-                                <a title="Add to cart" onClick={() => AddToCart({ id, name, category, price, image,newArivval, bestSelling })}> Add to cart </a>
+                                <a title="Add to cart" onClick={() => AddToCart({ id, name, category, price, image, newArivval, bestSelling })}> Add to cart </a>
 
                             </div >
                         </div>
