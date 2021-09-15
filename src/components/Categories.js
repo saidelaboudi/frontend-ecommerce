@@ -11,8 +11,8 @@ const HOST = 'http://localhost:8095';
 const Categories = () => {
     PersistedStore.loadState()
 
-    const products = useSelector((state) => state.products);
-    const categories = useSelector((state) => state.categories);
+    const products = useSelector((state) => state.products.products);
+    const categories = useSelector((state) => state.categories.categories);
     const dispatch = useDispatch();
 
 

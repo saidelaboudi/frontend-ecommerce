@@ -5,7 +5,7 @@ import { addToCart } from "../redux/action/product-actions"
 
 const Products = () => {
     
-    const products = useSelector((state) => state.products);
+    const products = useSelector((state) => state.products.products);
     const dispatch = useDispatch();
 
     const AddToCart = async (prod) => {
@@ -15,6 +15,7 @@ const Products = () => {
     console.log(products)
 
     const renderList = products && Object.values(products).map((product) => {
+        console.log(product)
         const { bestSelling, category, id, image, name, newArivval, price } = product;
         return (
             <div className="col-xl-3 col-lg-4 col-md-4 col-12" key={id}>
@@ -22,8 +23,7 @@ const Products = () => {
                 <div className="single-product" >
                     <div className="product-img" >
                         <a href="product-details.html" >
-                            <img className="default-img"  src={`data:image/jpeg;base64,${product.image.data}`} alt="#" />
-                            {console.log(product.image.data)}
+                            <img className="default-img"  src={`data:image/jpeg;base64,${image.data}`} alt="#" />
                             <img className="hover-img" src="https://via.placeholder.com/550x750" alt="#" />
                         </a> <div className="button-head" ><div className="product-action" >
                             <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="">

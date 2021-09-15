@@ -3,7 +3,7 @@ import Cart from "./Cart";
 import { useSelector } from "react-redux";
 
 const Header = () => {
-	const categories = useSelector((state) => state.categories);
+	const categories = useSelector((state) => state.categories.categories);
 	return (
 		<header className="header shop">
 			<div className="middle-inner">

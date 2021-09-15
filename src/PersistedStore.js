@@ -4,7 +4,7 @@ import {
 
 import reducers from '../src/redux/reducer/index';
 
-const LOCAL_STORAGE_NAME = 'store';
+const LOCAL_STORAGE_NAME = 'test';
 
 class PersistedStore {
 

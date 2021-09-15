@@ -1,13 +1,15 @@
 import { ActionTypes } from "../action-types/product-types";
 
 const initialState = {
-  cart : []
+  cart : [],
+  products : [],
+  categories : []
 };
 
 export const productsReducer = (state = {}, { type, payload }) => {
   switch (type) {
     case ActionTypes.SET_PRODUCTS:
-      return { ...state, ...payload };
+      return { ...state, products : payload };
     default:
       return state;
   }
@@ -30,7 +32,7 @@ export const addProductToCart = (state =  initialState , { type, payload }) => {
           : [...state.cart, { ...item, qty: 1 }],
       };
     case ActionTypes.SET_CART:
-      return { ...state, ...payload }
+      return { ...state, cart : payload }
     default:
       return state;
   }
@@ -39,7 +41,7 @@ export const addProductToCart = (state =  initialState , { type, payload }) => {
 export const setCart = (state = initialState, { type, payload }) => {
   switch (type) {
     case ActionTypes.SET_CART:
-      return { ...state, ...payload }
+      return { ...state, cart : payload }
     default:
       return state;
   }
@@ -47,7 +49,7 @@ export const setCart = (state = initialState, { type, payload }) => {
 export const categoriesReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ActionTypes.SET_CATEGORIES:
-      return { ...state, ...payload };
+      return { ...state, categories : payload };
     default:
       return state;
   }
@@ -56,7 +58,7 @@ export const categoriesReducer = (state = initialState, { type, payload }) => {
 export const selectedProductsReducer = (state = {}, { type, payload }) => {
   switch (type) {
     case ActionTypes.SELECTED_PRODUCT:
-      return { ...state, ...payload };
+      return { ...state, product :  payload };
     case ActionTypes.REMOVE_SELECTED_PRODUCT:
       return {};
     default:

@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { productsReducer, selectedProductsReducer, categoriesReducer, addProductToCart } from "./product-reducer";
+import { productsReducer,  categoriesReducer, addProductToCart } from "./product-reducer";
 
 const reducers = combineReducers({
   products: productsReducer,

@@ -7,8 +7,8 @@ import axios from 'axios';
 const HOST = 'http://localhost:8095';
 
 const ShopGrid = () => {
-	const products = useSelector((state) => state.products);
-	const categories = useSelector((state) => state.categories);
+	const products = useSelector((state) => state.products.products);
+	const categories = useSelector((state) => state.categories.categories);
 	const dispatch = useDispatch();
 	const init = async () => {
 		axios.get(HOST + '/api/category').then((response) => {
@@ -27,7 +27,7 @@ const ShopGrid = () => {
 		await axios.get(HOST + '/api/category/' + category.id).then((res)=>{
 			if(res.status == 200){
 				let data = res.data
-				dispatch(setProducts({data}));
+				dispatch(setProducts(data));
 				console.log("-*-",data)
 			}
 		})
