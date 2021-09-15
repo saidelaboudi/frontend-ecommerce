@@ -24,7 +24,7 @@ const submitCart = (cart, user) => {
         "user": {}
     }
 
-    cart.map((product) => {
+    cart.forEach((product) => {
         a.itemList.push(
             {
                 "id": 0,
@@ -81,7 +81,7 @@ class Check extends React.Component {
     render() {
         const cart = this.props.cart
         var total = 0;
-        cart.map((element) => {
+        cart.forEach((element) => {
             total += element.qty * element.price;
         });
         return (

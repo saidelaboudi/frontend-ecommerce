@@ -7,7 +7,6 @@ import ContactUs from './components/ContactUs';
 import CartPage from './components/CartPage';
 import ShopGrid from './components/ShopGrid';
 import Checkout from './components/Checkout';
-import Product from './components/Product';
 
 function App() {
   return (
@@ -20,7 +19,6 @@ function App() {
           <Route path="/shop-grid" component={ShopGrid} />
           <Route path="/cart" component={CartPage} />
           <Route path="/checkout" component={Checkout} />
-          <Route path="/product" component={Product} />
           <Route>404!</Route>
         </Switch>
         <Footer />

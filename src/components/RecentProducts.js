@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 const RecentProducts = () => {
     const products = useSelector((state) => state.products.products);
 
-    const renderList = products && Object.values(products).map((product) => {
+    const renderList = products && Object.values(products).forEach((product) => {
         const { id, name, newArrival, price } = product;
         if (newArrival)
             return (
@@ -13,7 +13,7 @@ const RecentProducts = () => {
                         <img src="https://via.placeholder.com/75x75" alt="#" />
                     </div>
                     <div className="content">
-                        <h5><a href="#">{name}</a></h5>
+                        <h5><a href="/#">{name}</a></h5>
                         <p className="price">{price} MAD</p>
                         <ul className="reviews">
                             <li className="yellow"><i className="ti-star"></i></li>

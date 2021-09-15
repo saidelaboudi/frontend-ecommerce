@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { setProducts, setCategories, setCart } from "../redux/action/product-actions"
+import { setProducts, setCategories} from "../redux/action/product-actions"
 import Products from './Products';
 import axios from 'axios';
 import RecentProducts from './RecentProducts';
@@ -10,38 +10,31 @@ const HOST =  process.env.HOST ;
 const ShopGrid = () => {
 	const categories = useSelector((state) => state.categories.categories);
 	const dispatch = useDispatch();
-	const init = async () => {
-		axios.get(HOST + '/api/category').then((response) => {
-			dispatch(setCategories(response.data))
-		});
-		chargeProduct()
-	};
-
+	axios.get(HOST + '/api/category').then((response) => {
+		dispatch(setCategories(response.data))
+	});
 	const chargeProduct = async () => {
 		axios.get(HOST + '/api/products/all').then((response) => {
 			dispatch(setProducts(response.data));
 		});
 	};
+	chargeProduct()
+
 
 	const chargeProductByCategory = async (category) => {
 		await axios.get(HOST + '/api/category/' + category.id).then((res) => {
-			if (res.status == 200) {
+			if (res.status === 200) {
 				let data = res.data
 				dispatch(setProducts(data));
 			}
 		})
 	};
 
-	useEffect(() => {
-		init()
-	}, []
-	);
-
 	const AllCategories = () => categories && Object.values(categories).map((category) => {
 		const { id, name, description } = category;
 		return (
 			<li className="nav-item" key={id} >
-				<a className="nav-link" id={"Categorie" + id} onClick={() => { chargeProductByCategory({ id, name, description }) }} >
+				<a className="nav-link" id={"Categorie" + id} onClick={() => { chargeProductByCategory({ id, name, description }) }} href="/#">
 					{name}
 				</a>
 			</li>
@@ -122,8 +115,8 @@ const ShopGrid = () => {
 										</div>
 									</div>
 									<ul className="view-mode">
-										<li className="active"><a href="shop-grid.html"><i className="fa fa-th-large"></i></a></li>
-										<li><a href="shop-list.html"><i className="fa fa-th-list"></i></a></li>
+										<li className="active"><a href="/#"><i className="fa fa-th-large"></i></a></li>
+										<li><a href="/#"><i className="fa fa-th-list"></i></a></li>
 									</ul>
 								</div>
 							</div>

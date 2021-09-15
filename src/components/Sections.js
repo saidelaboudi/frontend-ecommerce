@@ -15,7 +15,7 @@ const Section = () => {
 												<h1><span>UP TO 50% OFF </span>Shirt For Man</h1>
 												<p>Maboriosam in a nesciung eget magnae <br /> dapibus disting tloctio in the find it pereri <br /> odiy maboriosm.</p>
 												<div className="button">
-													<a href="www.google.com" className="btn">Shop Now!</a>
+													<a href="/#" className="btn">Shop Now!</a>
 												</div>
 											</div>
 										</div>
@@ -35,7 +35,7 @@ const Section = () => {
 								<div className="content">
 									<p>Man's Collectons</p>
 									<h3>Summer travel <br /> collection</h3>
-									<a href="www.google.com">Discover Now</a>
+									<a href="/#">Discover Now</a>
 								</div>
 							</div>
 						</div>
@@ -45,7 +45,7 @@ const Section = () => {
 								<div className="content">
 									<p>Bag Collectons</p>
 									<h3>Awesome Bag <br /> 2020</h3>
-									<a href="www.google.com">Shop Now</a>
+									<a href="/#">Shop Now</a>
 								</div>
 							</div>
 						</div>
@@ -55,7 +55,7 @@ const Section = () => {
 								<div className="content">
 									<p>Flash Sale</p>
 									<h3>Mid Season <br /> Up to <span>40%</span> Off</h3>
-									<a href="www.google.com">Discover Now</a>
+									<a href="/#">Discover Now</a>
 								</div>
 							</div>
 						</div>
