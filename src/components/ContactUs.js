@@ -12,9 +12,13 @@ const ContactUs = () => {
 		"address": "adress xy ville z",
 		"aboutUs": "Nous somme xyz"
 	};
-	axios.get(HOST + '/api/contactUs/get').then((response) => {
+	const init = async ()=>{
+	await axios.get(HOST + '/api/contactUs/get').then((response) => {
 		contact = response.data
-	});
+	});}
+	
+	init();
+
 	return (
 		<section id="contact-us" className="contact-us section">
 			<div className="container">

@@ -17,7 +17,7 @@ const Categories = () => {
 
 
     const init = async () => {
-        axios.get(HOST + '/api/category').then((response) => {
+        await axios.get(HOST + '/api/category').then((response) => {
             dispatch(setCategories(response.data))
         });
         chargeProduct({ id: 1 })
@@ -26,7 +26,7 @@ const Categories = () => {
     };
 
     const chargeProduct = async (category) => {
-        axios.get(HOST + '/api/products/category/' + category.id).then((response) => {
+        await axios.get(HOST + '/api/products/category/' + category.id).then((response) => {
             dispatch(setProducts(response.data));
         });
 

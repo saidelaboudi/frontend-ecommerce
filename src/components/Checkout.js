@@ -8,7 +8,9 @@ import { HOST } from "./Constantes";
 
 const Checkout = () => {
     const cart1 = useSelector((state) => state.cart.cart);
+
     const dispatch = useDispatch();
+    
     return (
         <>
             <Check cart={cart1} dispatch={dispatch} />
