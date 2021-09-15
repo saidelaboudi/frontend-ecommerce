@@ -14,7 +14,7 @@ const Header = () => {
 								<a href="/"><img src="images/logo.png" alt="logo" /></a>
 							</div>
 							<div className="search-top">
-								<div className="top-search"><a href="/#"><i className="ti-search"></i></a></div>
+								<div className="top-search"><a href="#0"><i className="ti-search"></i></a></div>
 								<div className="search-top">
 									<form className="search-form">
 										<input type="text" placeholder="Search here..." name="search" />

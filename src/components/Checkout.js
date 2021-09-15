@@ -8,9 +8,7 @@ import { HOST } from "./Constantes";
 
 const Checkout = () => {
     const cart1 = useSelector((state) => state.cart.cart);
-
     const dispatch = useDispatch();
-    
     return (
         <>
             <Check cart={cart1} dispatch={dispatch} />
@@ -44,7 +42,6 @@ const submitCart = (cart, user) => {
             }
         )
         a.amount += product.qty * product.price;
-        return a;
     })
 
     a.user = user
@@ -87,7 +84,6 @@ class Check extends React.Component {
         var total = 0;
         cart.map((element) => {
             total += element.qty * element.price;
-            return total;
         });
         return (
             <section class="shop checkout section">

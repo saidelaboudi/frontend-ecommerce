@@ -5,16 +5,15 @@ const RecentProducts = () => {
     const products = useSelector((state) => state.products.products);
 
     const renderList = products && Object.values(products).map((product) => {
-        const { id, name, newArrival, price } = product;
-        var list ;
+        const { bestSelling, category, id, image, name, newArrival, price } = product;
         if (newArrival)
-            list = (
+            return (
                 <div className="single-post first" key={id}>
                     <div className="image">
                         <img src="https://via.placeholder.com/75x75" alt="#" />
                     </div>
                     <div className="content">
-                        <h5><a href="/#">{name}</a></h5>
+                        <h5><a href="#">{name}</a></h5>
                         <p className="price">{price} MAD</p>
                         <ul className="reviews">
                             <li className="yellow"><i className="ti-star"></i></li>
@@ -25,9 +24,7 @@ const RecentProducts = () => {
                         </ul>
                     </div>
                 </div>
-            )
-
-            return list ;
+            );
     });
 
     return (

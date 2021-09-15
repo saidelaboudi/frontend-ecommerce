@@ -1,13 +1,15 @@
 import React from "react";
 import CartItem from "./CartItem";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+
 import { HOST } from "./Constantes";
+
 
 const Cart = () => {
     const cart = useSelector((state) => state.cart.cart);
     var total = 0;
-    cart && cart.forEach(element => {
+    cart && cart.map((element) => {
         total += element.qty * element.price;
     });
 
@@ -34,7 +36,7 @@ const Cart = () => {
                 }
             ]
         }
-        cart.forEach(item => {
+        cart.map((item) => {
             order.itemList.push({
                 id: 1235,
                 "product": {
@@ -57,11 +59,11 @@ const Cart = () => {
         <div className="col-lg-2 col-md-3 col-12">
             <div className="right-bar">
                 <div className="sinlge-bar shopping">
-                    <a href="/#" className="single-icon"><i className="ti-bag"></i> <span className="total-count">{cart.length}</span></a>
+                    <a href="www.google.com" className="single-icon"><i className="ti-bag"></i> <span className="total-count">{cart.length}</span></a>
                     <div className="shopping-item">
                         <div className="dropdown-cart-header">
                             <span>{cart.length} Items</span>
-                            <a href="/#">View Cart</a>
+                            <a href="www.google.com">View Cart</a>
                         </div>
 
                         <ul className="shopping-list">
