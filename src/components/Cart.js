@@ -1,6 +1,6 @@
 import React from "react";
 import CartItem from "./CartItem";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import axios from "axios";
 
 const HOST =  process.env.HOST ;

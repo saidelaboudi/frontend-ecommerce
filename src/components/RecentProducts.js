@@ -5,7 +5,7 @@ const RecentProducts = () => {
     const products = useSelector((state) => state.products.products);
 
     const renderList = products && Object.values(products).map((product) => {
-        const { bestSelling, category, id, image, name, newArrival, price } = product;
+        const { id, name, newArrival, price } = product;
         if (newArrival)
             return (
                 <div className="single-post first" key={id}>

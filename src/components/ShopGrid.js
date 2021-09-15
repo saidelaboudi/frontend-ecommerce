@@ -8,7 +8,6 @@ import RecentProducts from './RecentProducts';
 const HOST =  process.env.HOST ;
 
 const ShopGrid = () => {
-	const products = useSelector((state) => state.products.products);
 	const categories = useSelector((state) => state.categories.categories);
 	const dispatch = useDispatch();
 	const init = async () => {
