@@ -5,7 +5,7 @@ import Products from './Products';
 import axios from 'axios';
 import RecentProducts from './RecentProducts';
 
-const HOST = 'http://' + process.env.HOST + ':' + process.env.PORT;
+const HOST =  process.env.HOST ;
 
 const ShopGrid = () => {
 	const products = useSelector((state) => state.products.products);

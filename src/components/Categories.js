@@ -7,7 +7,7 @@ import Section from './Sections';
 import PersistedStore from '../PersistedStore';
 import TrendingProducts from './TrendingProducts';
 
-const HOST = 'http://' + process.env.HOST + ':' + process.env.PORT;
+const HOST =  process.env.HOST ;
 
 const Categories = () => {
     PersistedStore.loadState()
