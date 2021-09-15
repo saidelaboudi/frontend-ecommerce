@@ -4,7 +4,7 @@ import {
 
 import reducers from '../src/redux/reducer/index';
 
-const LOCAL_STORAGE_NAME = 'tet';
+const LOCAL_STORAGE_NAME = 'store';
 
 class PersistedStore {
 
@@ -54,7 +54,7 @@ class PersistedStore {
             localStorage.setItem(LOCAL_STORAGE_NAME, serializedState);
         } catch (err) {
             console.log(err)
-         }
+        }
     }
 
     static initialState() {

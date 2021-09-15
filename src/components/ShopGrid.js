@@ -7,39 +7,49 @@ import axios from 'axios';
 const HOST = 'http://localhost:8095';
 
 const ShopGrid = () => {
-	// const products = useSelector((state) => state.products);
+	const products = useSelector((state) => state.products);
 	const categories = useSelector((state) => state.categories);
 	const dispatch = useDispatch();
 	const init = async () => {
-		const test = axios.get(HOST + '/api/category').then((response) => {
+		axios.get(HOST + '/api/category').then((response) => {
 			dispatch(setCategories(response.data))
 		});
 		chargeProduct()
 	};
+
 	const chargeProduct = async () => {
-		const test2 = axios.get(HOST + '/api/products/all').then((response) => {
+		axios.get(HOST + '/api/products/all').then((response) => {
 			dispatch(setProducts(response.data));
 		});
 	};
+	
 	const chargeProductByCategory = async (category) => {
-		const test2 = axios.get(HOST + '/api/products/category/' + category.id).then((response) => {
-			dispatch(setProducts(response.data));
-		});
+		await axios.get(HOST + '/api/category/' + category.id).then((res)=>{
+			if(res.status == 200){
+				let data = res.data
+				dispatch(setProducts({data}));
+				console.log("-*-",data)
+			}
+		})
 	};
+	
 	useEffect(() => {
 		init()
 	}, []
 	);
+	
 	const AllCategories = () =>categories && Object.values(categories).map((category) => {
 		const { id, name, description } = category;
+		console.log("-----",category)
 		return (
 			<li className="nav-item" key={id} >
-				<a className="nav-link" id={"Categorie" + id} data-toggle="tab" href="#man" role="tab" onClick={() => { chargeProductByCategory({ id, name, description }) }} >
+				<a className="nav-link" id={"Categorie" + id}  onClick={ () => { chargeProductByCategory({ id, name, description }) }} >
 					{name}
 				</a>
 			</li>
 		)
 	});
+	
 	return (
 		<section className="product-area shop-sidebar shop section">
 			<div className="container">
@@ -49,7 +59,9 @@ const ShopGrid = () => {
 							<div className="single-widget category">
 								<h3 className="title">Categories</h3>
 								<ul className="categor-list">
+									
 									<AllCategories />
+
 								</ul>
 							</div>
 							<div className="single-widget range">
@@ -68,6 +80,7 @@ const ShopGrid = () => {
 										</div>
 									</div>
 								</div>
+
 								<ul className="check-box-list">
 									<li>
 										<label className="checkbox-inline" for="1"><input name="news" id="1" type="checkbox" />$20 - $50<span className="count">(3)</span></label>
@@ -79,7 +92,9 @@ const ShopGrid = () => {
 										<label className="checkbox-inline" for="3"><input name="news" id="3" type="checkbox" />$100 - $250<span className="count">(8)</span></label>
 									</li>
 								</ul>
+
 							</div>
+
 							<div className="single-widget recent-post">
 								<h3 className="title">Recent post</h3>
 								<div className="single-post first">
@@ -165,7 +180,9 @@ const ShopGrid = () => {
 						</div>
 						<div className="tab-single" >
 							<div className="row" >
+								
 								<Products />
+							
 							</div>
 						</div >
 					</div>
