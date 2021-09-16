@@ -12,8 +12,8 @@ const ShopGrid = () => {
 	const categories = useSelector((state) => state.categories.categories);
 	const dispatch = useDispatch();
 
-	const init = async (HOST) => {
-		axios.get(HOST + '/api/category').then((response) => {
+	const init = async (host) => {
+		await axios.get(HOST + '/api/category').then((response) => {
 			dispatch(setCategories(response.data))
 		});
 		chargeProduct()
@@ -34,11 +34,11 @@ const ShopGrid = () => {
 		})
 	};
 
-	useEffect((HOST) => init(HOST));
+	useEffect(() => init(HOST),[]);
 
 	const AllCategories = () => categories && Object.values(categories).map((category) => {
 		const { id, name, description } = category;
-		var list =(
+		var list = (
 			<li className="nav-item" key={id} >
 				<a className="nav-link" id={"Categorie" + id} href={() => false} onClick={() => { chargeProductByCategory({ id, name, description }) }} >
 					{name}
@@ -57,9 +57,7 @@ const ShopGrid = () => {
 							<div className="single-widget category">
 								<h3 className="title">Categories</h3>
 								<ul className="categor-list">
-
 									<AllCategories />
-
 								</ul>
 							</div>
 							<div className="single-widget range">
@@ -68,8 +66,8 @@ const ShopGrid = () => {
 									<div className="price-filter-inner">
 										<div id="slider-range" className="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
 											<div className="ui-slider-range ui-widget-header ui-corner-all" style={{ width: '26 %', left: '24 %' }}></div>
-											<span className="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style={{ left: '24 %' }}></span>
-											<span className="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style={{ left: '50 %' }}></span>
+											<span className="ui-slider-handle ui-state-default ui-corner-all" tabIndex="0" style={{ left: '24 %' }}></span>
+											<span className="ui-slider-handle ui-state-default ui-corner-all" tabIndex="0" style={{ left: '50 %' }}></span>
 										</div>
 										<div className="price_slider_amount" >
 											<div className="label-input">
@@ -78,61 +76,25 @@ const ShopGrid = () => {
 										</div>
 									</div>
 								</div>
-
 								<ul className="check-box-list">
 									<li>
-										<label className="checkbox-inline" for="1"><input name="news" id="1" type="checkbox" />$20 - $50<span className="count">(3)</span></label>
+										<label className="checkbox-inline" htmlFor="1"><input name="news" id="1" type="checkbox" />$20 - $50<span className="count">(3)</span></label>
 									</li>
 									<li>
-										<label className="checkbox-inline" for="2"><input name="news" id="2" type="checkbox" />$50 - $100<span className="count">(5)</span></label>
+										<label className="checkbox-inline" htmlFor="2"><input name="news" id="2" type="checkbox" />$50 - $100<span className="count">(5)</span></label>
 									</li>
 									<li>
-										<label className="checkbox-inline" for="3"><input name="news" id="3" type="checkbox" />$100 - $250<span className="count">(8)</span></label>
+										<label className="checkbox-inline" htmlFor="3"><input name="news" id="3" type="checkbox" />$100 - $250<span className="count">(8)</span></label>
 									</li>
 								</ul>
-
 							</div>
-
 							<RecentProducts />
-
-
 						</div>
 					</div>
 					<div className="col-lg-9 col-md-8 col-12">
-						<div className="row">
-							<div className="col-12">
-								<div className="shop-top">
-									<div className="shop-shorter">
-										<div className="single-shorter">
-											<label>Show :</label>
-											<select >
-												<option selected="selected">09</option>
-												<option>15</option>
-												<option>25</option>
-												<option>30</option>
-											</select><div className="nice-select" tabindex="0"><span className="current">09</span><ul className="list"><li data-value="09" className="option selected">09</li><li data-value="15" className="option">15</li><li data-value="25" className="option">25</li><li data-value="30" className="option">30</li></ul></div>
-										</div>
-										<div className="single-shorter">
-											<label>Sort By :</label>
-											<select >
-												<option selected="selected">Name</option>
-												<option>Price</option>
-												<option>Size</option>
-											</select><div className="nice-select" tabindex="0"><span className="current">Name</span><ul className="list"><li data-value="Name" className="option selected">Name</li><li data-value="Price" className="option">Price</li><li data-value="Size" className="option">Size</li></ul></div>
-										</div>
-									</div>
-									<ul className="view-mode">
-										<li className="active"><a href={() => false}><i className="fa fa-th-large"></i></a></li>
-										<li><a href={() => false}><i className="fa fa-th-list"></i></a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
 						<div className="tab-single" >
 							<div className="row" >
-
 								<Products />
-
 							</div>
 						</div >
 					</div>

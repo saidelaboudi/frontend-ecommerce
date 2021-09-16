@@ -7,11 +7,11 @@ const Products = () => {
 
     const products = useSelector((state) => state.products.products);
     const dispatch = useDispatch();
+    console.log(products)
 
     const AddToCart = async (prod) => {
         dispatch(addToCart(prod))
     };
-
     const renderList = products && Object.values(products).map((product) => {
         const { bestSelling, category, id, image, name, newArivval, price } = product;
         return (

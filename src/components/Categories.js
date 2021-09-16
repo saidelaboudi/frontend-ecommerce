@@ -12,7 +12,7 @@ const Categories = () => {
     const categories = useSelector((state) => state.categories.categories);
     const dispatch = useDispatch();
     
-    const init = async (HOST) => {
+    const init = async (host) => {
         axios.get(HOST + '/api/category').then((response) => {
             dispatch(setCategories(response.data))
         });
@@ -38,7 +38,7 @@ const Categories = () => {
         }
     };
 
-    useEffect((HOST) => init(HOST));
+    useEffect(() => init(HOST),[]);
 
     const AllCategories = categories && Object.values(categories).map((category) => {
         const { id, name, description } = category;

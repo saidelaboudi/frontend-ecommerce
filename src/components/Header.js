@@ -14,7 +14,6 @@ const Header = () => {
 								<a href="/"><img src="images/logo.png" alt="logo" /></a>
 							</div>
 							<div className="search-top">
-								<div className="top-search"><a href={() => false}><i className="ti-search"></i></a></div>
 								<div className="search-top">
 									<form className="search-form">
 										<input type="text" placeholder="Search here..." name="search" />
@@ -29,9 +28,8 @@ const Header = () => {
 								<div className="search-bar">
 									<select>
 										<option value="selected">All Category</option>
-
 										{categories && Object.values(categories).map((category) =>
-											<option>{category.name}</option>
+											<option key={category.id}>{category.name}</option>
 										)
 										}
 									</select>
@@ -42,9 +40,7 @@ const Header = () => {
 								</div>
 							</div>
 						</div>
-
 						<Cart />
-
 					</div>
 				</div>
 			</div>
@@ -61,9 +57,9 @@ const Header = () => {
 											<div className="nav-inner">
 												<ul className="nav main-menu menu navbar-nav">
 													<li className="active"><a href="/">Home</a></li>
-													<li><a href="shop-grid">Shop Grid</a></li>
-													<li><a href="cart">Cart</a></li>
-													<li><a href="checkout">Checkout</a></li>
+													<li><a href="/shop-grid">Shop Grid</a></li>
+													<li><a href="/cart">Cart</a></li>
+													<li><a href="/checkout">Checkout</a></li>
 													<li><a href="/contactUs">Contact Us</a></li>
 												</ul>
 											</div>
