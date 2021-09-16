@@ -32,7 +32,7 @@ const CartPage = () => {
                                         var list = (
                                             <tr key={item.id}>
 
-                                                <td className="image" data-title="No"><img src="https://via.placeholder.com/100x100" alt="#" /></td>
+                                                <td className="image" data-title="No"><img src={`data:image/jpeg;base64,${item.image.data}`}  alt="#" /></td>
 
                                                 <td className="product-des" data-title="Description">
                                                     <p className="product-name"><a href={() => false}>{item.name}</a></p>
