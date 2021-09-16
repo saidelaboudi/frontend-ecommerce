@@ -11,7 +11,8 @@ import { HOST } from "./Constantes";
 const ShopGrid = () => {
 	const categories = useSelector((state) => state.categories.categories);
 	const dispatch = useDispatch();
-	const init = async () => {
+
+	const init = async (HOST) => {
 		axios.get(HOST + '/api/category').then((response) => {
 			dispatch(setCategories(response.data))
 		});
@@ -33,7 +34,7 @@ const ShopGrid = () => {
 		})
 	};
 
-	useEffect(() => init(), []);
+	useEffect((HOST) => init(HOST));
 
 	const AllCategories = () => categories && Object.values(categories).map((category) => {
 		const { id, name, description } = category;

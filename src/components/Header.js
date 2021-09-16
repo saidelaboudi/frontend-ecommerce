@@ -34,7 +34,6 @@ const Header = () => {
 											<option>{category.name}</option>
 										)
 										}
-
 									</select>
 									<form>
 										<input name="search" placeholder="Search Products Here....." type="search" />
@@ -54,75 +53,6 @@ const Header = () => {
 					<div className="cat-nav-head">
 						<div className="row">
 							<div className="col-lg-3">
-
-								{/* <div className="all-category">
-									<h3 className="cat-heading"><i className="fa fa-bars" aria-hidden="true"></i>CATEGORIES</h3>
-									<ul className="main-category">
-										<li><a >New Arrivals <i className="fa fa-angle-right" aria-hidden="true"></i></a>
-											<ul className="sub-category">
-												<li><a >accessories</a></li>
-												<li><a >best selling</a></li>
-												<li><a >top 100 offer</a></li>
-												<li><a >sunglass</a></li>
-												<li><a >watch</a></li>
-												<li><a >man’s product</a></li>
-												<li><a >ladies</a></li>
-												<li><a >westrn dress</a></li>
-												<li><a >denim </a></li>
-											</ul>
-										</li>
-										<li className="main-mega"><a >best selling <i className="fa fa-angle-right" aria-hidden="true"></i></a>
-											<ul className="mega-menu">
-												<li className="single-menu">
-													<a  className="title-link">Shop Kid's</a>
-													<div className="image">
-														<img src="https://via.placeholder.com/225x155" alt="#" />
-													</div>
-													<div className="inner-link">
-														<a >Kids Toys</a>
-														<a >Kids Travel Car</a>
-														<a >Kids Color Shape</a>
-														<a >Kids Tent</a>
-													</div>
-												</li>
-												<li className="single-menu">
-													<a  className="title-link">Shop Men's</a>
-													<div className="image">
-														<img src="https://via.placeholder.com/225x155" alt="#" />
-													</div>
-													<div className="inner-link">
-														<a >Watch</a>
-														<a >T-shirt</a>
-														<a >Hoodies</a>
-														<a >Formal Pant</a>
-													</div>
-												</li>
-												<li className="single-menu">
-													<a  className="title-link">Shop Women's</a>
-													<div className="image">
-														<img src="https://via.placeholder.com/225x155" alt="#" />
-													</div>
-													<div className="inner-link">
-														<a >Ladies Shirt</a>
-														<a >Ladies Frog</a>
-														<a >Ladies Sun Glass</a>
-														<a >Ladies Watch</a>
-													</div>
-												</li>
-											</ul>
-										</li>
-										<li><a >accessories</a></li>
-										<li><a >top 100 offer</a></li>
-										<li><a >sunglass</a></li>
-										<li><a >watch</a></li>
-										<li><a >man’s product</a></li>
-										<li><a >ladies</a></li>
-										<li><a >westrn dress</a></li>
-										<li><a >denim </a></li>
-									</ul>
-								</div> */}
-
-
 							</div>
 							<div className="col-lg-9 col-12">
 								<div className="menu-area">
