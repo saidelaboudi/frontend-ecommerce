@@ -58,7 +58,7 @@ const Categories = () => {
                     <div className="row" >
                         <div className="col-12" >
                             <div className="section-title" >
-                                <h2 > Trending Item </h2>
+                                <h2 > Le Top des articles tendances </h2>
                             </div>
                         </div>
                     </div >

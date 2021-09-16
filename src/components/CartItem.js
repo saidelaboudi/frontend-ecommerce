@@ -9,7 +9,7 @@ const CartItem = ({ item }) => {
                 <img src={`data:image/jpeg;base64,${item.image.data}`} alt="#" />
                 </a>
             <h4><a href={() => false}>{item.name}</a></h4>
-            <p className="quantity"> quantity <span className="amount">{item.qty}</span></p>
+            <p className="quantity"> Quantite <span className="amount">{item.qty}</span></p>
         </li>
     );
 };

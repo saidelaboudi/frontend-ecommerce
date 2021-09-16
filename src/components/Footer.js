@@ -27,7 +27,7 @@ const Footer = () => {
                                     <a href={() => false}><img src="images/logo2.png" alt="#" /></a>
                                 </div>
                                 <p className="text">{contact.phoneNumber}</p>
-                                <p className="call">Got Question? Call us 24/7<span><a href="tel:123456789">{contact.phoneNumber}</a></span></p>
+                                <p className="call">Vous avez une question ? Appelez-nous 24/7<span><a href="tel:123456789">{contact.phoneNumber}</a></span></p>
                             </div>
                         </div>
                         <div className="col-lg-2 col-md-6 col-12">
@@ -56,7 +56,7 @@ const Footer = () => {
                         </div>
                         <div className="col-lg-3 col-md-6 col-12">
                             <div className="single-footer social">
-                                <h4>Get In Tuch</h4>
+                                <h4>Rester en contact</h4>
                                 <div className="contact">
                                     <ul>
                                         <li>{contact.address}</li>

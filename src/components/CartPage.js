@@ -18,9 +18,9 @@ const CartPage = () => {
                             <thead>
                                 <tr className="main-hading">
                                     <th>PRODUCT</th>
-                                    <th>NAME</th>
-                                    <th className="text-center">UNIT PRICE</th>
-                                    <th className="text-center">QUANTITY</th>
+                                    <th>TITRE</th>
+                                    <th className="text-center">PRIX UNITAIRE</th>
+                                    <th className="text-center">QUANTITE</th>
                                     <th className="text-center">TOTAL</th>
                                     <th className="text-center"><i className="ti-trash remove-icon"></i></th>
                                 </tr>
@@ -79,13 +79,13 @@ const CartPage = () => {
                                 <div className="col-lg-4 col-md-7 col-12">
                                     <div className="right">
                                         <ul>
-                                            <li>Cart Subtotal<span>{total} MAD</span></li>
-                                            <li>Shipping<span>Free</span></li>
-                                            <li className="last">You Pay<span>{total} MAD</span></li>
+                                            <li>Sous-total du panier<span>{total} MAD</span></li>
+                                            <li>livraison<span>Free</span></li>
+                                            <li className="last">Tu payes<span>{total} MAD</span></li>
                                         </ul>
                                         <div className="button6">
-                                            <a href="checkout" className="btn">Checkout</a>
-                                            <a href="shop-grid" className="btn">Continue shopping</a>
+                                            <a href="checkout" className="btn">Vérifier</a>
+                                            <a href="shop-grid" className="btn">Continuer vos achats</a>
                                         </div>
                                     </div>
                                 </div>

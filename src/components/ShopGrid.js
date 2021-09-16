@@ -59,7 +59,7 @@ const ShopGrid = () => {
 								</ul>
 							</div>
 							<div className="single-widget range">
-								<h3 className="title">Shop by Price</h3>
+								<h3 className="title">Magasiner par prix</h3>
 								<div className="price-filter">
 									<div className="price-filter-inner">
 										<div id="slider-range" className="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">

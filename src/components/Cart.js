@@ -65,8 +65,8 @@ const Cart = () => {
                     <a href={() => false} className="single-icon"><i className="ti-bag"></i> <span className="total-count">{cart.length}</span></a>
                     <div className="shopping-item">
                         <div className="dropdown-cart-header">
-                            <span>{cart.length} Items</span>
-                            <a href={() => false}>View Cart</a>
+                            <span>{cart.length} Articles</span>
+                            <a href={() => false}>Mon Panier</a>
                         </div>
 
                         <ul className="shopping-list">
@@ -81,7 +81,7 @@ const Cart = () => {
                                 <span>Total</span>
                                 <span className="total-amount">{total} MAD</span>
                             </div>
-                            <a href="cart" onClick={() => checkout()} className="btn animate">CART</a>
+                            <a href="cart" onClick={() => checkout()} className="btn animate">Panier</a>
                         </div>
                     </div>
                 </div>

@@ -27,7 +27,7 @@ const Header = () => {
 							<div className="search-bar-top">
 								<div className="search-bar">
 									<select>
-										<option value="selected">All Category</option>
+										<option value="selected">tous les categoris</option>
 										{categories && Object.values(categories).map((category) =>
 											<option key={category.id}>{category.name}</option>
 										)
@@ -56,11 +56,11 @@ const Header = () => {
 										<div className="navbar-collapse">
 											<div className="nav-inner">
 												<ul className="nav main-menu menu navbar-nav">
-													<li className="active"><a href="/">Home</a></li>
-													<li><a href="/shop-grid">Shop Grid</a></li>
-													<li><a href="/cart">Cart</a></li>
+													<li ><a href="/">Accueil</a></li>
+													<li><a href="/shop-grid">Grille de magasin</a></li>
+													<li><a href="/cart">Panier</a></li>
 													<li><a href="/checkout">Checkout</a></li>
-													<li><a href="/contactUs">Contact Us</a></li>
+													<li><a href="/contactUs">Contact</a></li>
 												</ul>
 											</div>
 										</div>

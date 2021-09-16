@@ -39,7 +39,7 @@ const TrendingProducts = () => {
                                 </a> </div >
                                 <div className="product-action-2" >
 
-                                    <a title="Add to cart" href={() => false} onClick={() => AddToCart({ id, name, category, price, image, newArivval, bestSelling })}> Add to cart </a>
+                                    <a title="Add to cart" href={() => false} onClick={() => AddToCart({ id, name, category, price, image, newArivval, bestSelling })}> Ajouter au panier </a>
 
                                 </div >
                             </div>
