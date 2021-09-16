@@ -73,7 +73,7 @@ const ContactUs = () => {
 									<i className="fa fa-phone"></i>
 									<h4 className="title">Appelez-nous maintenant :</h4>
 									<ul>
-										<li>{contact.phoneNumber}</li>
+										<li><a href="tel:'contact.phoneNumber'">{contact.phoneNumber}</a></li>
 									</ul>
 								</div>
 								<div className="single-info">
