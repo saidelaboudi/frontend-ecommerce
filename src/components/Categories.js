@@ -12,15 +12,6 @@ const Categories = () => {
     const categories = useSelector((state) => state.categories.categories);
     const dispatch = useDispatch();
     
-    const init = async (host) => {
-        axios.get(HOST + '/api/category').then((response) => {
-            dispatch(setCategories(response.data))
-        });
-        chargeProduct({ id: 1 })
-        var current = document.getElementsByClassName("active");
-        current[0].className += " active";
-    };
-
     const chargeProduct = async (category) => {
         axios.get(HOST + '/api/products/category/' + category.id).then((response) => {
             dispatch(setProducts(response.data));
@@ -38,8 +29,15 @@ const Categories = () => {
         }
     };
 
-    useEffect(() => init(HOST),[]);
-
+    useEffect(() =>{
+        axios.get(HOST + '/api/category').then((response) => {
+            dispatch(setCategories(response.data))
+        });
+        var current = document.getElementsByClassName("active");
+        current[0].className += " active";
+    },[dispatch]);
+    chargeProduct({ id: 1 })
+    
     const AllCategories = categories && Object.values(categories).map((category) => {
         const { id, name, description } = category;
         return (

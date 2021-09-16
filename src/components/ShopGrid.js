@@ -12,13 +12,6 @@ const ShopGrid = () => {
 	const categories = useSelector((state) => state.categories.categories);
 	const dispatch = useDispatch();
 
-	const init = async (host) => {
-		await axios.get(HOST + '/api/category').then((response) => {
-			dispatch(setCategories(response.data))
-		});
-		chargeProduct()
-	};
-
 	const chargeProduct = async () => {
 		axios.get(HOST + '/api/products/all').then((response) => {
 			dispatch(setProducts(response.data));
@@ -34,7 +27,13 @@ const ShopGrid = () => {
 		})
 	};
 
-	useEffect(() => init(HOST),[]);
+	useEffect(() => {
+		axios.get(HOST + '/api/category').then((response) => {
+			dispatch(setCategories(response.data))
+		});
+	},[dispatch]);
+
+	chargeProduct()
 
 	const AllCategories = () => categories && Object.values(categories).map((category) => {
 		const { id, name, description } = category;
@@ -47,7 +46,6 @@ const ShopGrid = () => {
 		)
 		return list;
 	});
-
 	return (
 		<section className="product-area shop-sidebar shop section">
 			<div className="container">
