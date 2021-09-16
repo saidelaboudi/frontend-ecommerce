@@ -5,16 +5,12 @@ import { setProducts, setCategories } from "../redux/action/product-actions"
 import Section from './Sections';
 import PersistedStore from '../PersistedStore';
 import TrendingProducts from './TrendingProducts';
-
 import { HOST } from "./Constantes";
-
 
 const Categories = () => {
     PersistedStore.loadState()
     const categories = useSelector((state) => state.categories.categories);
     const dispatch = useDispatch();
-
-
     const init = async () => {
         axios.get(HOST + '/api/category').then((response) => {
             dispatch(setCategories(response.data))
@@ -41,15 +37,13 @@ const Categories = () => {
         }
     };
 
-
-    useEffect(() =>init(),[]);
-
+    useEffect(() => init(), []);
 
     const AllCategories = categories && Object.values(categories).map((category) => {
         const { id, name, description } = category;
         return (
             <li className="nav-item" key={id} >
-                <a className="nav-link" id={"Categorie" + id} data-toggle="tab" href={() => false} role="tab" onClick={() => { chargeProduct({ id, name, description }) }} >
+                <a className="nav-link" id={"Categorie" + id} href={() => false} role="tab" onClick={() => { chargeProduct({ id, name, description }) }} >
                     {name}
                 </a>
             </li>
