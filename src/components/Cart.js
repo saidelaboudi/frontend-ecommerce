@@ -55,7 +55,7 @@ const Cart = () => {
         );
         order.amount = total;
         order.id = 3632;
-        axios.post(HOST + '/api/order/newOrder', order).then((response) => console.log(response.data));
+        axios.post(HOST + '/api/order/newOrder', order)
     }
 
     return (

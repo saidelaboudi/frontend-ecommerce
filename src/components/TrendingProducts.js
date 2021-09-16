@@ -12,10 +12,7 @@ const TrendingProducts = () => {
         dispatch(addToCart(prod))
     };
 
-    console.log(products)
-
     const renderList = products && Object.values(products).map((product) => {
-        console.log(product)
         const { bestSelling, category, id, image, name, newArivval, price } = product;
         if (bestSelling)
             var list = (

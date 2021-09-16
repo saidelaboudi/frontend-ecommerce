@@ -12,10 +12,7 @@ const Products = () => {
         dispatch(addToCart(prod))
     };
 
-    console.log(products)
-
     const renderList = products && Object.values(products).map((product) => {
-        console.log(product)
         const { bestSelling, category, id, image, name, newArivval, price } = product;
         return (
             <div className="col-xl-3 col-lg-4 col-md-4 col-12" key={id}>
