@@ -29,7 +29,7 @@ const CartPage = () => {
                             <tbody>
                                 {
                                     Object.values(cart).map((item) => {
-                                        (
+                                        var list = (
                                             <tr key={item.id}>
 
                                                 <td className="image" data-title="No"><img src="https://via.placeholder.com/100x100" alt="#" /></td>
@@ -63,7 +63,7 @@ const CartPage = () => {
                                             </tr>
 
                                         )
-                                        return 0
+                                        return list
                                     }
                                     )
                                 }
