@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts, setCategories } from "../redux/action/product-actions"
-import Products from './Products';
 import Section from './Sections';
 import PersistedStore from '../PersistedStore';
 import TrendingProducts from './TrendingProducts';
@@ -12,14 +11,12 @@ import { HOST } from "./Constantes";
 
 const Categories = () => {
     PersistedStore.loadState()
-
-    const products = useSelector((state) => state.products.products);
     const categories = useSelector((state) => state.categories.categories);
     const dispatch = useDispatch();
 
 
     const init = async () => {
-        const test = axios.get(HOST + '/api/category').then((response) => {
+        axios.get(HOST + '/api/category').then((response) => {
             dispatch(setCategories(response.data))
         });
         chargeProduct({ id: 1 })
@@ -28,7 +25,7 @@ const Categories = () => {
     };
 
     const chargeProduct = async (category) => {
-        const test2 = axios.get(HOST + '/api/products/category/' + category.id).then((response) => {
+        axios.get(HOST + '/api/products/category/' + category.id).then((response) => {
             dispatch(setProducts(response.data));
         });
 
@@ -45,17 +42,14 @@ const Categories = () => {
     };
 
 
-    useEffect(() => {
-        init()
-    }, []
-    );
+    useEffect(() =>init(),[]);
 
 
     const AllCategories = categories && Object.values(categories).map((category) => {
         const { id, name, description } = category;
         return (
             <li className="nav-item" key={id} >
-                <a className="nav-link" id={"Categorie" + id} data-toggle="tab" href="#man" role="tab" onClick={() => { chargeProduct({ id, name, description }) }} >
+                <a className="nav-link" id={"Categorie" + id} data-toggle="tab" href={() => false} role="tab" onClick={() => { chargeProduct({ id, name, description }) }} >
                     {name}
                 </a>
             </li>

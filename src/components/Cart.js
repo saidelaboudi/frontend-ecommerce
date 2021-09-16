@@ -1,6 +1,6 @@
 import React from "react";
 import CartItem from "./CartItem";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import axios from "axios";
 
 import { HOST } from "./Constantes";
@@ -11,6 +11,7 @@ const Cart = () => {
     var total = 0;
     cart && cart.map((element) => {
         total += element.qty * element.price;
+        return 0 ;
     });
 
     const checkout = () => {
@@ -49,7 +50,9 @@ const Cart = () => {
                 },
                 "quantity": item.qty
             })
-        });
+            return 0
+        }
+        );
         order.amount = total;
         order.id = 3632;
         axios.post(HOST + '/api/order/newOrder', order).then((response) => console.log(response.data));
@@ -59,11 +62,11 @@ const Cart = () => {
         <div className="col-lg-2 col-md-3 col-12">
             <div className="right-bar">
                 <div className="sinlge-bar shopping">
-                    <a href="www.google.com" className="single-icon"><i className="ti-bag"></i> <span className="total-count">{cart.length}</span></a>
+                    <a href={() => false} className="single-icon"><i className="ti-bag"></i> <span className="total-count">{cart.length}</span></a>
                     <div className="shopping-item">
                         <div className="dropdown-cart-header">
                             <span>{cart.length} Items</span>
-                            <a href="www.google.com">View Cart</a>
+                            <a href={() => false}>View Cart</a>
                         </div>
 
                         <ul className="shopping-list">

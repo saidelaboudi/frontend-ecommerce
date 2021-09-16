@@ -8,8 +8,6 @@ import CartPage from './components/CartPage';
 import ShopGrid from './components/ShopGrid';
 import Checkout from './components/Checkout';
 import Product from './components/Product';
-import Dashboard from './admin/dashboard';
-import Form from './admin/Form';
 
 function App() {
   return (
@@ -18,13 +16,11 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/" component={Categories} />
-          <Route exact path="/form" component={Form} />
           <Route path="/contactUs" component={ContactUs} />
           <Route path="/shop-grid" component={ShopGrid} />
           <Route path="/cart" component={CartPage} />
           <Route path="/checkout" component={Checkout} />
           <Route path="/product" component={Product} />
-          <Route path="/admin" component={Dashboard} />
           <Route>404!</Route>
         </Switch>
         <Footer />

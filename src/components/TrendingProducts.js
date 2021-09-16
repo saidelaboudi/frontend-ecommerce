@@ -18,31 +18,31 @@ const TrendingProducts = () => {
         console.log(product)
         const { bestSelling, category, id, image, name, newArivval, price } = product;
         if (bestSelling)
-            return (
+            var list = (
                 <div className="col-xl-3 col-lg-4 col-md-4 col-12" key={id}>
 
                     <div className="single-product" >
                         <div className="product-img" >
-                            <a href="product-details.html" >
+                            <a href={() => false} >
                                 <img className="default-img" src={`data:image/jpeg;base64,${image.data}`} alt="#" />
                                 <img className="hover-img" src={`data:image/jpeg;base64,${image.data}`} alt="#" />
                             </a> <div className="button-head" ><div className="product-action" >
-                                <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="">
+                                <a data-toggle="modal" data-target="#exampleModal" title="Quick View" href={() => false}>
                                     <i className=" ti-eye" >
                                     </i>
                                     <span>Quick Shop</span >
                                 </a>
-                                <a title="Wishlist" href="">
+                                <a title="Wishlist" href={() => false}>
                                     <i className=" ti-heart " > </i>
                                     <span>Add to Wishlist</span >
                                 </a>
-                                <a title="Compare" href="">
+                                <a title="Compare" href={() => false}>
                                     <i className="ti-bar-chart-alt" > </i>
                                     <span>Add to Compare</span >
                                 </a> </div >
                                 <div className="product-action-2" >
 
-                                    <a title="Add to cart" onClick={() => AddToCart({ id, name, category, price, image, newArivval, bestSelling })}> Add to cart </a>
+                                    <a title="Add to cart" href={() => false} onClick={() => AddToCart({ id, name, category, price, image, newArivval, bestSelling })}> Add to cart </a>
 
                                 </div >
                             </div>
@@ -50,7 +50,7 @@ const TrendingProducts = () => {
                         <div className="product-content" >
                             <div className="product-price" >
                                 <h3 >
-                                    <a href="product-details.html" >{name} </a>
+                                    <a href={() => false} >{name} </a>
                                 </h3 >
                                 <span > {price} MAD </span>
                             </div >
@@ -58,6 +58,7 @@ const TrendingProducts = () => {
                     </div >
                 </div>
             );
+            return list ;
     }
     )
 

@@ -42,6 +42,7 @@ const submitCart = (cart, user) => {
             }
         )
         a.amount += product.qty * product.price;
+        return 0 ;
     })
 
     a.user = user
@@ -84,67 +85,68 @@ class Check extends React.Component {
         var total = 0;
         cart.map((element) => {
             total += element.qty * element.price;
+            return 0 ;
         });
         return (
-            <section class="shop checkout section">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-12">
-                            <div class="checkout-form">
+            <section className="shop checkout section">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-8 col-12">
+                            <div className="checkout-form">
                                 <h2>Make Your Checkout Here</h2>
                                 <p>Please register in order to checkout more quickly</p>
 
-                                <form class="form" onChange={this.change} onSubmit={this.submit}>
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-12">
-                                            <div class="form-group">
+                                <form className="form" onChange={this.change} onSubmit={this.submit}>
+                                    <div className="row">
+                                        <div className="col-lg-6 col-md-6 col-12">
+                                            <div className="form-group">
                                                 <label>First Name<span>*</span></label>
                                                 <input type="text" name="firstname" placeholder="" required="required" />
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-12">
-                                            <div class="form-group">
+                                        <div className="col-lg-6 col-md-6 col-12">
+                                            <div className="form-group">
                                                 <label>Last Name<span>*</span></label>
                                                 <input type="text" name="lastname" placeholder="" required="required" />
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-12">s
-                                            <div class="form-group">
+                                        <div className="col-lg-6 col-md-6 col-12">s
+                                            <div className="form-group">
                                                 <label>Email Address<span>*</span></label>
                                                 <input type="email" name="email" placeholder="" required="required" />
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-12">
-                                            <div class="form-group">
+                                        <div className="col-lg-6 col-md-6 col-12">
+                                            <div className="form-group">
                                                 <label>Phone Number<span>*</span></label>
                                                 <input type="number" name="phonenumber" placeholder="" required="required" />
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-12">
-                                            <div class="form-group">
+                                        <div className="col-lg-6 col-md-6 col-12">
+                                            <div className="form-group">
                                                 <label>Address Line 1<span>*</span></label>
                                                 <input type="text" name="address" placeholder="" required="required" />
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="button">
-                                        <button type="submit" class="btn">proceed to checkout</button>
+                                    <div className="button">
+                                        <button type="submit" className="btn">proceed to checkout</button>
                                     </div>
 
                                 </form>
                             </div>
                         </div>
 
-                        <div class="col-lg-4 col-12">
-                            <div class="order-details">
-                                <div class="single-widget">
+                        <div className="col-lg-4 col-12">
+                            <div className="order-details">
+                                <div className="single-widget">
                                     <h2>CART  TOTALS</h2>
-                                    <div class="content">
+                                    <div className="content">
                                         <ul>
                                             <li>Sub Total<span>{total} MAD</span></li>
                                             <li>(+) Shipping<span>25.00 MAD</span></li>
-                                            <li class="last">Total<span>{total + 25.00} MAD</span></li>
+                                            <li className="last">Total<span>{total + 25.00} MAD</span></li>
                                         </ul>
                                     </div>
                                 </div>
